@@ -152,7 +152,7 @@ public class ExpiryMap<K, V> extends HashMap<K, V> {
 	/**
 	 * 
 	 * @Description: 是否过期
-	 * @param expiryTime
+	 * @param -expiryTime
 	 *            true 过期
 	 * @param isRemoveSuper
 	 *            true super删除

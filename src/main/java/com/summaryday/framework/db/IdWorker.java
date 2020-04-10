@@ -1,6 +1,5 @@
 package com.summaryday.framework.db;
 
-import org.apache.log4j.Logger;
 
 /**
  * tweeter的snowflake 移植到Java: (a) id构成: 42位的时间前缀 + 10位的节点标识 +

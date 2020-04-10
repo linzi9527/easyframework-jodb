@@ -667,7 +667,7 @@ public class SummaryDayDBHelper {
 	 }
 	 /**
 	  * 获取实体对象
-	  * @param instance
+	  * @param -instance
 	  * @return
 	  */
 	 public Object get(Integer id,Class<?> o,String SID){

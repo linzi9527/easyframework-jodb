@@ -1,7 +1,6 @@
 package com.summaryday.framework.cache;
 
 import java.util.Map;
-
 import net.sf.ehcache.Cache;
 
 public interface CacheProvider {

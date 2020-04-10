@@ -33,7 +33,6 @@ import com.summaryday.framework.cache.SqlCommonDAO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@SuppressWarnings("rawtypes")
 public class DBHelper {
 
 	private static final Logger log = LoggerFactory.getLogger(DBHelper.class);

@@ -159,7 +159,7 @@ public class DateUtil {
 	 * 将YYYYMMDD转换成Date日期
 	 * @param date
 	 * @return
-	 * @throws BusinessException
+	 * @throws
 	 */
 	public static Date transferDate(String date) throws Exception
 	{

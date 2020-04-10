@@ -1,17 +1,6 @@
 package com.summaryday.framework.db;
 
 import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.ResourceBundle;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-
-import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
  * 
@@ -21,8 +10,8 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class SummaryDayConnectionFactory {
-	
-	private static final Logger logger = LoggerFactory.getLogger(SummaryDayConnectionFactory.class);
+    private static  String DIALECT =null;
+	/*private static final Logger logger = LoggerFactory.getLogger(SummaryDayConnectionFactory.class);
 	
 	private static ComboPooledDataSource ds = null;
 	private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("db");
@@ -93,7 +82,7 @@ public class SummaryDayConnectionFactory {
 	           // e.printStackTrace();
 	        	logger.error("\n数据源连接池初始化异常："+e);
 	        }
-	        
+
 	    	
 	    }
 	  
@@ -133,6 +122,14 @@ public class SummaryDayConnectionFactory {
 		public static void setSID(String sID) {
 			SID = sID;
 		}
-
-	   
+*/
+    public static synchronized Connection getConnection() {
+        return null;
+    }
+    public static synchronized Connection getConnection(String SID) {
+        return null;
+    }
+    public static String getDialect() {
+        return DIALECT;
+    }
 } // C3P0 end

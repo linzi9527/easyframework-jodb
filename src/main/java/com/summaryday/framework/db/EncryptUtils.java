@@ -189,8 +189,8 @@ public class EncryptUtils {
     /**
      * 根据相应的解密算法、指定的密钥和需要解密的文本进行解密，返回解密后的文本内容
      * @param Algorithm 加密算法:DES,AES
-     * @param key 这个key可以由用户自己指定 注意AES的长度为16位,DES的长度为8位
-     * @param sInfo
+     * @param -key 这个key可以由用户自己指定 注意AES的长度为16位,DES的长度为8位
+     * @param -sInfo
      * @return
      */
     public static String decrypt(String Algorithm, String sSrc, String sKey) throws Exception {
@@ -227,8 +227,8 @@ public class EncryptUtils {
     /**
      * 根据相应的加密算法、指定的密钥、源文件进行加密，返回加密后的文件
      * @param Algorithm 加密算法:DES,AES
-     * @param key 这个key可以由用户自己指定 注意AES的长度为16位,DES的长度为8位
-     * @param info
+     * @param -key 这个key可以由用户自己指定 注意AES的长度为16位,DES的长度为8位
+     * @param -info
      * @return
      */
     public static String encrypt(String Algorithm, String sSrc, String sKey) throws Exception {
@@ -335,7 +335,7 @@ public class EncryptUtils {
     /**
      * 十六进制字符串转化为2进制
      * 
-     * @param hex
+     * @param -hex
      * @return
      */
     public static byte[] hex2byte(String strhex) {

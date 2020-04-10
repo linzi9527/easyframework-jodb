@@ -1,20 +1,18 @@
 package com.summaryday.framework.dbms;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
-
 import com.alibaba.druid.pool.DruidDataSource;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import com.summaryday.framework.db.EncryptUtils;
 import com.summaryday.framework.db.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+
 public class MSlave2ConnectionFactory {
 	private static final Logger logger = LoggerFactory.getLogger(MSlave2ConnectionFactory.class);
 
-	private static ComboPooledDataSource ds = null;
 	private static DruidDataSource        dd=null;
 	
 	//private static ResourceBundle        BUNDLE = ResourceBundle.getBundle("db-ms");
@@ -34,20 +32,6 @@ public class MSlave2ConnectionFactory {
 	private static final String             URL = "slave02_url";
 	private static final String        USERNAME = "slave02_username";
 	private static final String        PASSWORD = "slave02_password";
-	
-	//c3p0
-	private static final String      MAXPOOLSIZE="slave02_MaxPoolSize";
-	private static final String      MINPOOLSIZE="slave02_MinPoolSize";
-	private static final String   IDLETESTPERIOD="slave02_idleConnectionTestPeriod";
-	private static final String ACQUIREINCREMENT="slave02_acquireIncrement";
-	private static final String  INITIALPOOLSIZE="slave02_initialPoolSize";
-	private static final String    MAXSTATEMENTS="slave02_maxStatements";
-	private static final String     HELPERTHEADS="slave02_numHelperThreads";
-	private static final String         IDLETIME="slave02_maxIdleTime";
-	private static final String    RetryAttempts="slave02_acquireRetryAttempts";
-	private static final String       RetryDelay="slave02_acquireRetryDelay";
-	private static final String          TIMEOUT="slave02_checkoutTimeout";
-	
 	
 	//druid
 	private static final String                            INITIALSIZE="slave02_initialSize";
@@ -111,36 +95,7 @@ public class MSlave2ConnectionFactory {
 		} catch (Exception e1) {
 			logger.error("警告:获取slave02_ehcache异常："+e1.getMessage());
 		}
-		if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())){
-	        try{				
-	              ds = new ComboPooledDataSource();
-	              ds.setDriverClass(BUNDLE.getString(DRIVER));  
-	              ds.setJdbcUrl(BUNDLE.getString(URL));
-	              ds.setUser(BUNDLE.getString(USERNAME));
-	              ds.setPassword(BUNDLE.getString(PASSWORD));
-		          
-	            	ds.setAutoCommitOnClose(StringUtil.StringToBoolean(BUNDLE.getString(AutoCommitOnClose)));
-	            	ds.setCheckoutTimeout(StringUtil.StringToInteger(BUNDLE.getString(TIMEOUT)));
-	            	ds.setAcquireRetryDelay(StringUtil.StringToInteger(BUNDLE.getString(RetryDelay)));
-	            	ds.setAcquireRetryAttempts(StringUtil.StringToInteger(BUNDLE.getString(RetryAttempts)));
-					ds.setMaxPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MAXPOOLSIZE)));
-					ds.setMinPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MINPOOLSIZE)));
-					ds.setIdleConnectionTestPeriod(StringUtil.StringToInteger(BUNDLE.getString(IDLETESTPERIOD)));
-					ds.setAcquireIncrement(StringUtil.StringToInteger(BUNDLE.getString(ACQUIREINCREMENT)));
-					ds.setInitialPoolSize(StringUtil.StringToInteger(BUNDLE.getString(INITIALPOOLSIZE)));
-					ds.setMaxStatements(StringUtil.StringToInteger(BUNDLE.getString(MAXSTATEMENTS)));
-					ds.setNumHelperThreads(StringUtil.StringToInteger(BUNDLE.getString(HELPERTHEADS)));
-					ds.setMaxIdleTime(StringUtil.StringToInteger(BUNDLE.getString(IDLETIME)));
-					
-					logger.info("\n"+
-					"=====================================\n"+
-					"‖                         c3p0初始化                               ‖\n"+
-					"=====================================\n"
-					+"\n");
-		} catch (Exception e) {
-			logger.error("c3p0连接池参数选择："+e.getMessage());
-		}
-    }else	if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
+		if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
 		//driud
 		 try{
 				
@@ -196,10 +151,7 @@ public class MSlave2ConnectionFactory {
 	        Connection con = null;
 	        try {
 	        	if(EncryptUtils.LOCK){
-		        	 if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())) 
-		            {
-						con = ds.getConnection();
-		            }else if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
+		        	 if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
 		            	con=dd.getConnection();
 		            }
 	        	}else{
@@ -239,4 +191,4 @@ public class MSlave2ConnectionFactory {
 	    }
 	     
 	   
-} // C3P0 end
+} // end

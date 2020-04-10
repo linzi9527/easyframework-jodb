@@ -5,14 +5,12 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Slave2ConnectionFactory {
 	private static final Logger logger = LoggerFactory.getLogger(Slave2ConnectionFactory.class);
 
-	private static ComboPooledDataSource ds = null;
 	private static DruidDataSource dd=null;
 	
 	//private static final ResourceBundle BUNDLE = ResourceBundle.getBundle("db");
@@ -97,39 +95,7 @@ public class Slave2ConnectionFactory {
 			} catch (Exception e1) {
 				logger.error("警告:获取develop_mode异常："+e1.getMessage());
 			}
-		if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())){
-	        try{				
-	              ds = new ComboPooledDataSource();
-	              ds.setDriverClass(BUNDLE.getString(DRIVER));  
-	              ds.setJdbcUrl(BUNDLE.getString(URL));
-	              ds.setUser(BUNDLE.getString(USERNAME));
-	              ds.setPassword(BUNDLE.getString(PASSWORD));
-		          
-	            	ds.setAutoCommitOnClose(StringUtil.StringToBoolean(BUNDLE.getString(AutoCommitOnClose)));
-	            	ds.setCheckoutTimeout(StringUtil.StringToInteger(BUNDLE.getString(TIMEOUT)));
-	            	ds.setAcquireRetryDelay(StringUtil.StringToInteger(BUNDLE.getString(RetryDelay)));
-	            	ds.setAcquireRetryAttempts(StringUtil.StringToInteger(BUNDLE.getString(RetryAttempts)));
-					ds.setMaxPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MAXPOOLSIZE)));
-					ds.setMinPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MINPOOLSIZE)));
-					ds.setIdleConnectionTestPeriod(StringUtil.StringToInteger(BUNDLE.getString(IDLETESTPERIOD)));
-					ds.setAcquireIncrement(StringUtil.StringToInteger(BUNDLE.getString(ACQUIREINCREMENT)));
-					ds.setInitialPoolSize(StringUtil.StringToInteger(BUNDLE.getString(INITIALPOOLSIZE)));
-					ds.setMaxStatements(StringUtil.StringToInteger(BUNDLE.getString(MAXSTATEMENTS)));
-					ds.setNumHelperThreads(StringUtil.StringToInteger(BUNDLE.getString(HELPERTHEADS)));
-					ds.setMaxIdleTime(StringUtil.StringToInteger(BUNDLE.getString(IDLETIME)));
-					
-					Slave2ConnectionFactory.DIALECT   =BUNDLE.getString("dialect");
-					Slave2ConnectionFactory.SQL_FORMAT=StringUtil.StringToBoolean(BUNDLE.getString("sql_format"));
-					Slave2ConnectionFactory.EHCACHE   =StringUtil.StringToBoolean(BUNDLE.getString("ehcache"));
-					logger.info("\n"+
-					"=====================================\n"+
-					"‖                         c3p0初始化从库（02）               ‖\n"+
-					"=====================================\n"
-					+"\n");
-		} catch (Exception e) {
-			logger.error("c3p0连接池参数选择："+e.getMessage());
-		}
-    }else	if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
+		if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
 		//driud
 		 try{
 				
@@ -192,10 +158,7 @@ public class Slave2ConnectionFactory {
 	        long s=System.currentTimeMillis();
 	        try {
 	        	if(EncryptUtils.LOCK){
-		        	 if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())) 
-		            {
-						con = ds.getConnection();
-		            }else if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
+		        	 if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
 		            	con=dd.getConnection();
 		            }
 		        }else{
@@ -238,4 +201,4 @@ public class Slave2ConnectionFactory {
 	    }
 	     
 	   
-} // C3P0 end
+} // end

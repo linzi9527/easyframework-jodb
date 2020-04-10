@@ -1,26 +1,28 @@
 package com.summaryday.framework.db;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.util.Properties;
-
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.web.context.ContextLoader;
-import org.springframework.web.context.WebApplicationContext;
-import org.springframework.web.context.request.RequestContextHolder;
-import org.springframework.web.context.request.ServletRequestAttributes;
+
+import java.io.IOException;
+import java.util.Properties;
 
 public class SysUtils {
 
 
 	private static final Logger logger = LoggerFactory.getLogger(SysUtils.class);
-	
+
+	public static Properties getProperties() {
+		Properties properties = new Properties();
+		try {
+			properties.load(SysUtils.class.getResourceAsStream("/db.properties"));
+		} catch (IOException e) {
+			logger.error("获取Properties文件-异常:"+e.getMessage());
+		}
+		return properties;
+	}
+
+
+/*
 	private static WebApplicationContext context = null;
 
 	static {
@@ -33,8 +35,8 @@ public class SysUtils {
 
 		return context.getServletContext();
 	}
-	
-	public static HttpSession getSession() { 
+
+	public static HttpSession getSession() {
 		  HttpSession session = null; 
 		  try { 
 		    session = getRequest().getSession(); 
@@ -44,7 +46,7 @@ public class SysUtils {
 		    return session; 
 	} 
 		  
-	public static HttpServletRequest getRequest() { 
+	public static HttpServletRequest getRequest() {
 		ServletRequestAttributes attrs =null;
 		try {
 			 attrs =(ServletRequestAttributes) RequestContextHolder.getRequestAttributes(); 
@@ -53,17 +55,9 @@ public class SysUtils {
 			 logger.error("获取Request-异常:"+e.getMessage());
 		} 
 		return null;
-	} 
-	
-	public static Properties getProperties() {
-		Properties properties = new Properties();
-		try {
-			properties.load(SysUtils.class.getResourceAsStream("/db.properties"));
-		} catch (IOException e) {
-			logger.error("获取Properties文件-异常:"+e.getMessage());
-		}
-		return properties;
 	}
+	
+
 	
 	public static String getPath(String key) throws UnsupportedEncodingException
 	{
@@ -75,5 +69,5 @@ public class SysUtils {
 		}
 		return null;
 	}
-	
+	*/
 }

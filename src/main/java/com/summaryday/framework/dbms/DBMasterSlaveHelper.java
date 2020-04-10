@@ -1,29 +1,5 @@
 package com.summaryday.framework.dbms;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.jsp.jstl.sql.Result;
-import javax.servlet.jsp.jstl.sql.ResultSupport;
-
-import org.apache.commons.lang.StringUtils;
-
 import com.summaryday.framework.a.Colum;
 import com.summaryday.framework.a.Key;
 import com.summaryday.framework.a.Table;
@@ -31,11 +7,20 @@ import com.summaryday.framework.cache.Command;
 import com.summaryday.framework.cache.JDBCBeanUtil;
 import com.summaryday.framework.cache.SqlCommonDAO;
 import com.summaryday.framework.db.ConnectionFactory;
-import com.summaryday.framework.db.DBSetting;
-import com.summaryday.framework.db.DynamicConnectionFactory;
 import com.summaryday.framework.db.StringUtil;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.servlet.jsp.jstl.sql.Result;
+import javax.servlet.jsp.jstl.sql.ResultSupport;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.*;
+import java.util.Date;
+import java.util.*;
 
 public class DBMasterSlaveHelper {
 	private static final Logger log = LoggerFactory.getLogger(DBMasterSlaveHelper.class);
@@ -53,7 +38,7 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 查询数据
 	 * 
-	 * @param sql
+	 * @param -sql
 	 * @return
 	 */
 	public ResultSet executeQuery(String sql) {
@@ -85,7 +70,7 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 查表记录数 from tbl_name where xxx=iii
 	 * 
-	 * @param sql
+	 * @param
 	 * @return
 	 */
 	public int QueryCount(String from_sql) {
@@ -143,7 +128,7 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 查对象的数量
 	 * 
-	 * @param vo的数量
+	 * @param -vo的数量
 	 * @return
 	 */
 	public int findCount(Class<?> o) {
@@ -328,7 +313,6 @@ public class DBMasterSlaveHelper {
 			// e.printStackTrace();
 			log.error("IllegalAccessException-->" + e.getMessage());
 		} catch (InvocationTargetException e) {
-			// TODO Auto-generated catch block
 			// e.printStackTrace();
 			log.error("InvocationTargetException-->" + e.getMessage());
 		} catch (InstantiationException e) {
@@ -348,9 +332,9 @@ public class DBMasterSlaveHelper {
 	 *            :实体对象Obj.class
 	 * @param isWhere
 	 *            : where id=id and ...
-	 * @param group
+	 * @param
 	 *            : group by ...
-	 * @param order
+	 * @param
 	 *            : order by ...
 	 * @param isCache
 	 *            : true or false 是否开启查询缓存
@@ -1526,7 +1510,7 @@ public class DBMasterSlaveHelper {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
+	 * @throws
 	 */
 	@SuppressWarnings({ "static-access" })
 	public boolean update(Object obj) {
@@ -1708,7 +1692,7 @@ public class DBMasterSlaveHelper {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
+	 * @throws
 	 */
 	@SuppressWarnings({ "static-access" })
 	public  boolean updateByTransaction(Object[] obj) {
@@ -1845,7 +1829,7 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 根据实体Object删除记录
 	 * 
-	 * @param id
+	 * @param
 	 * @return
 	 */
 	@SuppressWarnings("static-access")
@@ -2940,7 +2924,7 @@ public class DBMasterSlaveHelper {
 	
 	/**
 	 * 批量创建多表
-	 * @param dBSetting
+	 * @param
 	 * @param sqlList
 	 * @return
 	 */
@@ -3060,8 +3044,7 @@ public class DBMasterSlaveHelper {
 	 * 
 	 * query(查询方法) (注意事项： – 目前只支持 Map List返回值)
 	 * 
-	 * @param resultClass
-	 *            返回类型 如: Map.class
+	 * @param返回类型如: Map.class
 	 * @return
 	 * @throws SQLException
 	 * @exception
@@ -3498,9 +3481,6 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 获取所有表名
 	 * 
-	 * @param dbname
-	 * @param user
-	 * @param conn
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
@@ -3570,7 +3550,7 @@ public class DBMasterSlaveHelper {
 	 * 动态bean使用map<k,n>来代替
 	 * 
 	 * @param sql
-	 * @param isCache
+	 * @param -isCache
 	 * @return
 	 */
 	public Map<String, Object> queryMap(String sql) {
@@ -3608,7 +3588,7 @@ public class DBMasterSlaveHelper {
 	 * 动态bean使用map<k,n>来代替,返回list<bean>由list<map<k,o>>代替
 	 * 
 	 * @param sql
-	 * @param isCache
+	 * @param -isCache
 	 * @return
 	 */
 	public List<Map<String, Object>> queryListMap(String sql) {

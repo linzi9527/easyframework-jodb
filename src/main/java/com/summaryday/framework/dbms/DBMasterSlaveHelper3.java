@@ -84,7 +84,7 @@ public class DBMasterSlaveHelper3 {
 	/**
 	 * 查表记录数
 	 * from tbl_name where xxx=iii
-	 * @param sql
+	 * @param from_sql
 	 * @return
 	 */
 	public int QueryCount(String from_sql) {
@@ -139,7 +139,7 @@ public class DBMasterSlaveHelper3 {
 	
 	/**
 	 * 查对象的数量
-	 * @param vo的数量
+	 * @param -o的数量
 	 * @return
 	 */
 	public int findCount(Class<?> o) {
@@ -326,8 +326,8 @@ public class DBMasterSlaveHelper3 {
  * 查询实体列表清单
  * @param o :实体对象Obj.class
  * @param isWhere : where id=id and ...
- * @param group  : group by ...
- * @param order  : order by ...
+ * @param   : group by ...
+ * @param   : order by ...
  * @param isCache : true or false 是否开启查询缓存
  * @return
  */
@@ -1330,7 +1330,6 @@ public class DBMasterSlaveHelper3 {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
 	 */
 	@SuppressWarnings({ "static-access"})
 	public boolean update(Object obj) {
@@ -1499,7 +1498,6 @@ public class DBMasterSlaveHelper3 {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
 	 */
 	@SuppressWarnings({ "static-access"})
 	public  boolean updateByTransaction(Object[] obj) {
@@ -1611,7 +1609,6 @@ public class DBMasterSlaveHelper3 {
 					connection.rollback();
 					log.error("-----------数据-回滚异常3-----------");
 				} catch (SQLException e) {
-					// TODO Auto-generated catch block
 					log.error("数据-回滚异常33：" + e);
 				}
 			}
@@ -1639,7 +1636,7 @@ public class DBMasterSlaveHelper3 {
 	/**
 	 * 根据实体Object删除记录
 	 * 
-	 * @param id
+	 * @param obj
 	 * @return
 	 */
 	@SuppressWarnings("static-access")
@@ -2722,7 +2719,7 @@ public class DBMasterSlaveHelper3 {
 	 * 
 	 * query(查询方法) (注意事项： – 目前只支持 Map List返回值)
 	 * 
-	 * @param resultClass
+	 * @param maplistClass
 	 *            返回类型 如: Map.class
 	 * @return
 	 * @throws SQLException
@@ -3114,9 +3111,6 @@ public class DBMasterSlaveHelper3 {
     
     /**
      * 获取所有表名
-     * @param dbname
-     * @param user
-     * @param conn
      * @return
      * @throws UnsupportedEncodingException 
      */
@@ -3183,7 +3177,6 @@ public class DBMasterSlaveHelper3 {
     /**
      * 动态bean使用map<k,n>来代替
      * @param sql
-     * @param isCache
      * @return
      */
 	public Map<String,Object> queryMap(String sql) {
@@ -3219,7 +3212,6 @@ public class DBMasterSlaveHelper3 {
     /**
      * 动态bean使用map<k,n>来代替,返回list<bean>由list<map<k,o>>代替
      * @param sql
-     * @param isCache
      * @return
      */
 	public List<Map<String,Object>> queryListMap(String sql) {

@@ -1,68 +1,23 @@
 package com.summaryday.framework.db;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.ParsePosition;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.JDOMException;
-import org.jdom.input.SAXBuilder;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class StringUtil {
 
 	private static final Logger log = LoggerFactory.getLogger(StringUtil.class);
 	
-	/**
-	 * 读取XML内容转换为数组
-	 * 使用方式：
-		String url=System.getProperty("user.dir");
-		XmlTest obj = new XmlTest();
-		String fileName = url+"\\PlugIn\\web01\\PlugIn.xml";
-		Map<String,String> p=	obj.xml_Map(fileName);
-	 * @param fileName
-	 * @return
-	 * @throws JDOMException
-	 * @throws IOException
-	 */
-	public static Map<String,String> xml_Map(String fileName) throws JDOMException, IOException{
-		 Map<String,String> mapxml=new HashMap<String, String>();
-		SAXBuilder b = new SAXBuilder();
-		Document xmlFile = b.build(new File(fileName));
-		Element root = xmlFile.getRootElement(); 
-		if("PlugIn".equals(root.getName())){
-			mapxml.put("version", root.getChild("version").getText());
-			mapxml.put("display-name", root.getChild("display-name").getText());
-			mapxml.put("url-pattern", root.getChild("url-pattern").getText());
-			mapxml.put("class-name", root.getChild("class-name").getText());
-		}
 
-		return mapxml;
-	}
 	
 	//接收中文参数乱码处理
 	public static String UTF8ToString(String str){

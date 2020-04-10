@@ -5,14 +5,12 @@ import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 import com.alibaba.druid.pool.DruidDataSource;
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class ConnectionFactory {
 	private static final Logger logger = LoggerFactory.getLogger(ConnectionFactory.class);
 
-	private static ComboPooledDataSource ds = null;
 	private static DruidDataSource        dd=null;
 	private static  ResourceBundle   BUNDLE =null;
 	//private static final ResourceBundle  BUNDLE = ResourceBundle.getBundle("db");
@@ -29,21 +27,6 @@ public class ConnectionFactory {
 	private static final String             URL = "url";
 	private static final String        USERNAME = "username";
 	private static final String        PASSWORD = "password";
-	
-	//c3p0
-	private static final String      MAXPOOLSIZE="MaxPoolSize";
-	private static final String      MINPOOLSIZE="MinPoolSize";
-	private static final String   IDLETESTPERIOD="idleConnectionTestPeriod";
-	private static final String ACQUIREINCREMENT="acquireIncrement";
-	private static final String  INITIALPOOLSIZE="initialPoolSize";
-	private static final String    MAXSTATEMENTS="maxStatements";
-	private static final String     HELPERTHEADS="numHelperThreads";
-	private static final String         IDLETIME="maxIdleTime";
-	private static final String    RetryAttempts="acquireRetryAttempts";
-	private static final String       RetryDelay="acquireRetryDelay";
-	private static final String          TIMEOUT="checkoutTimeout";
-	
-	
 	//druid
 	private static final String                            INITIALSIZE="initialSize";
 	private static final String                                MINIDLE="minIdle";
@@ -98,39 +81,7 @@ public class ConnectionFactory {
 			logger.error("警告:获取develop_mode异常："+e1.getMessage());
 		}
 		
-		if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())){
-	        try{				
-	              ds = new ComboPooledDataSource();
-	              ds.setDriverClass(BUNDLE.getString(DRIVER));  
-	              ds.setJdbcUrl(BUNDLE.getString(URL));
-	              ds.setUser(BUNDLE.getString(USERNAME));
-	              ds.setPassword(BUNDLE.getString(PASSWORD));
-		          
-	            	ds.setAutoCommitOnClose(StringUtil.StringToBoolean(BUNDLE.getString(AutoCommitOnClose)));
-	            	ds.setCheckoutTimeout(StringUtil.StringToInteger(BUNDLE.getString(TIMEOUT)));
-	            	ds.setAcquireRetryDelay(StringUtil.StringToInteger(BUNDLE.getString(RetryDelay)));
-	            	ds.setAcquireRetryAttempts(StringUtil.StringToInteger(BUNDLE.getString(RetryAttempts)));
-					ds.setMaxPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MAXPOOLSIZE)));
-					ds.setMinPoolSize(StringUtil.StringToInteger(BUNDLE.getString(MINPOOLSIZE)));
-					ds.setIdleConnectionTestPeriod(StringUtil.StringToInteger(BUNDLE.getString(IDLETESTPERIOD)));
-					ds.setAcquireIncrement(StringUtil.StringToInteger(BUNDLE.getString(ACQUIREINCREMENT)));
-					ds.setInitialPoolSize(StringUtil.StringToInteger(BUNDLE.getString(INITIALPOOLSIZE)));
-					ds.setMaxStatements(StringUtil.StringToInteger(BUNDLE.getString(MAXSTATEMENTS)));
-					ds.setNumHelperThreads(StringUtil.StringToInteger(BUNDLE.getString(HELPERTHEADS)));
-					ds.setMaxIdleTime(StringUtil.StringToInteger(BUNDLE.getString(IDLETIME)));
-					
-					ConnectionFactory.DIALECT   =BUNDLE.getString("dialect");
-					ConnectionFactory.SQL_FORMAT=StringUtil.StringToBoolean(BUNDLE.getString("sql_format"));
-					ConnectionFactory.EHCACHE   =StringUtil.StringToBoolean(BUNDLE.getString("ehcache"));
-					logger.info("\n"+
-					"=====================================\n"+
-					"‖                         c3p0初始化                               ‖\n"+
-					"=====================================\n"
-					+"\n");
-		} catch (Exception e) {
-			logger.error("c3p0连接池参数选择："+e.getMessage());
-		}
-    }else	if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
+		if (PoolType!=null&&"druid".equals(PoolType.toLowerCase())) {
 		//driud
 		 try{
 				
@@ -195,10 +146,7 @@ public class ConnectionFactory {
 	        long s=System.currentTimeMillis();
 	        try {
 	        	if(EncryptUtils.LOCK){
-		        	 if(PoolType!=null&&"c3p0".equals(PoolType.toLowerCase())) 
-		            {
-						con = ds.getConnection();
-		            }else if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
+		         if(PoolType!=null&&"druid".equals(PoolType.toLowerCase())){
 		            	con=dd.getConnection();
 		            }
 	        	}else{
@@ -241,4 +189,4 @@ public class ConnectionFactory {
 	    }
 	     
 	   
-} // C3P0 end
+} // end

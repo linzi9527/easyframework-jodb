@@ -1,10 +1,11 @@
 package com.summaryday.framework.db;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.beans.IntrospectionException;
 import java.beans.Introspector;
 import java.beans.PropertyDescriptor;
-import java.io.BufferedReader;
-import java.io.PrintWriter;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
@@ -13,14 +14,6 @@ import java.util.Random;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.sf.json.JSONObject;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 
 public class JsonUtil {
@@ -331,12 +324,51 @@ public class JsonUtil {
 		{log.info("将一个字符串转换为json格式:"+sb.toString());}
 		return sb.toString();
 	}
+
+
+
+	//字符串里提取数字
+	public static String getIntFromString(String a){
+		String regEx="[^0-9]";
+		Pattern p = Pattern.compile(regEx);
+		Matcher m = p.matcher(a);
+
+		return  m.replaceAll("").trim();
+	}
+
+	/**
+	 * 获取指定范围的随机数
+	 * @param max
+	 * @param min
+	 * @return
+	 */
+	public static int getRandom(int max,int min){
+//        int max=100;
+//        int min=1;
+		Random random = new Random();
+		int s = random.nextInt(max)%(max-min+1) + min;
+		return s;
+	}
+	/**
+	 * 0~(max-1)
+	 * @param max
+	 * @return
+	 */
+	public static int getRandom(int max){
+		Random random = new Random();
+		int s = random.nextInt(max);
+		return s;
+	}
+
+
+
+
 	/**
 	 * 向前台输出json格式数据
 	 * @param response
 	 * @param beanObj 是一个pojo或Bean
 	 */
-	public static void returnMsg(HttpServletResponse  response,Object beanObj){
+	/*public static void returnMsg(HttpServletResponse  response,Object beanObj){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -349,10 +381,10 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
 	
-	
+	/*
 	public static void returnMap(HttpServletResponse  response, Map mapObj){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
@@ -366,13 +398,15 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
+
+
 	/**
 	 * 向前台输出字符串数据
 	 * @param response
 	 * @param msg
 	 */
-	public static void returnMsg(HttpServletResponse  response,String msg){
+	/*public static void returnMsg(HttpServletResponse  response,String msg){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -384,13 +418,15 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
+
+
 	/**
 	 * 列表以json格式输出
 	 * @param response
 	 * @param list
 	 */
-	public static void returnData(HttpServletResponse  response,List<?> list){
+	/*public static void returnData(HttpServletResponse  response,List<?> list){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -403,13 +439,13 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
 	/**
 	 * 列表以Wex5json格式输出
 	 * @param response
 	 */
-	public static void returnDataOfWex5json(HttpServletResponse  response,Object beanObj){
+	/*public static void returnDataOfWex5json(HttpServletResponse  response,Object beanObj){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -422,13 +458,15 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
+
+
 	/**
 	 * bean对象以Wex5json格式输出
 	 * @param response
 	 * @param list
 	 */
-	public static void returnDataOfWex5json(HttpServletResponse  response,List<?> list){
+	/*public static void returnDataOfWex5json(HttpServletResponse  response,List<?> list){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -445,14 +483,14 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
 	/**
 	 * list中是JsonObject
 	 * @param response
 	 * @param list
 	 */
-	public static void returnDataOfWex5ListJson(HttpServletResponse  response,List<?> list){
+	/*public static void returnDataOfWex5ListJson(HttpServletResponse  response,List<?> list){
 		try{
 		   response.setContentType("application/html;charset=UTF-8");
 		   response.setCharacterEncoding("UTF-8");
@@ -469,45 +507,11 @@ public class JsonUtil {
 			e.printStackTrace();
 		}
 
-	}
+	}*/
 	
-	
-	//字符串里提取数字
-	public static String getIntFromString(String a){
-			String regEx="[^0-9]";   
-			Pattern p = Pattern.compile(regEx);   
-			Matcher m = p.matcher(a);   
-			
-			return  m.replaceAll("").trim();
-	}
-	
-	/**
-	 * 获取指定范围的随机数
-	 * @param max
-	 * @param min
-	 * @return
-	 */
-	public static int getRandom(int max,int min){
-//        int max=100;
-//        int min=1;
-        Random random = new Random();
-        int s = random.nextInt(max)%(max-min+1) + min;
-        return s;
-	}
-	/**
-	 * 0~(max-1)
-	 * @param max
-	 * @return
-	 */
-	public static int getRandom(int max){
-      Random random = new Random();
-      int s = random.nextInt(max);
-      return s;
-	}
-	
-	
+
 	//在求情的网络流中的缓冲区读取数据
-	public static String readJSONString(HttpServletRequest request){
+	/*public static String readJSONString(HttpServletRequest request){
 			   StringBuffer json = new StringBuffer();
 			   String line = null;
 			   try {
@@ -521,8 +525,8 @@ public class JsonUtil {
 			   }
 			//	log.info("\n缓冲区读取数据："+json.toString());
 			   return json.toString();
-		   }
-
+	}
+*/
 	 /**
 	  * 接收前端发送到后台的数据（json格式为转为对象对应某个bean，可以保存、更新）
 	  * @param request
@@ -530,8 +534,8 @@ public class JsonUtil {
 	  *  com.alibaba.fastjson.JSONObject paramsOjbect = (com.alibaba.fastjson.JSONObject) com.alibaba.fastjson.JSONObject.parse(params);
 	  * @return
 	  */
-	 @SuppressWarnings("unchecked")
-	public static <T> T beanFromJSONString(HttpServletRequest request,Class<T> clazz){
+	// @SuppressWarnings("unchecked")
+	/*public static <T> T beanFromJSONString(HttpServletRequest request,Class<T> clazz){
 		String params= readJSONString(request);
 		//log.info("\n接收params："+params);
 		T t=null;
@@ -542,14 +546,14 @@ public class JsonUtil {
 			log.info("\n================有问题没进去处理==================");
 		}
 		 return t;
-	 }
+	 }*/
 	 
 	 /**
 	  * 对于各种查询的请求参数json数据处理，一般带有分页和关键字offset、rows以及同时携带了查询条件id、名称、日期、其他等
 	  * @param request
 	  * @return
 	  */
-	 public static JSONObject jsonObjectFromJSONString(HttpServletRequest request){
+	/* public static JSONObject jsonObjectFromJSONString(HttpServletRequest request){
 			String params= readJSONString(request);
 		//	log.info("\n接收params："+params);
 			 JSONObject jsonObject=null;
@@ -559,5 +563,5 @@ public class JsonUtil {
 				log.info("\n================有问题没进去处理==================");
 			}
 			 return jsonObject;
-		 }
+	 }*/
 }
