@@ -66,6 +66,8 @@ public class MSlave3ConnectionFactory {
 	private static final String                           TestOnReturn="slave03_testOnReturn";
 	private static final String                        RemoveAbandoned="slave03_removeAbandoned";
 	private static final String                 RemoveAbandonedTimeout="slave03_removeAbandonedTimeout";
+	private static final String                 		  LogAbandoned="slave03_logAbandoned";
+
 
 	public  static  boolean       EHCACHE=false;
 	public  static  String       DIALECT =null;
@@ -172,9 +174,14 @@ public class MSlave3ConnectionFactory {
 				dd.setTestWhileIdle(StringUtil.StringToBoolean(BUNDLE.getString("slave03_testWhileIdle")));
 				dd.setTestOnReturn(StringUtil.StringToBoolean(BUNDLE.getString(TestOnReturn)));
 				dd.setTestOnBorrow(StringUtil.StringToBoolean(BUNDLE.getString(TestOnBorrow)));
-				dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
-				dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
-	
+
+			 try {
+				 dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
+				 dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
+				 dd.setLogAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(LogAbandoned)));
+			 } catch (Exception e) {
+				 logger.error("参数[RemoveAbandoned、RemoveAbandonedTimeout、LogAbandoned]配置或转换类型异常：",e.getMessage());
+			 }
 				logger.info("\n"+
 						"=====================================\n"+
 						"‖                         druid初始化                               ‖\n"+

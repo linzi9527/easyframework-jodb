@@ -43,7 +43,8 @@ public class Slave2ConnectionFactory {
 	private static final String    RetryAttempts="s2_acquireRetryAttempts";
 	private static final String       RetryDelay="s2_acquireRetryDelay";
 	private static final String          TIMEOUT="s2_checkoutTimeout";
-	
+
+
 	
 	//druid
 	private static final String                            INITIALSIZE="s2_initialSize";
@@ -62,6 +63,7 @@ public class Slave2ConnectionFactory {
 	private static final String                           TestOnReturn="s2_testOnReturn";
 	private static final String                        RemoveAbandoned="removeAbandoned";
 	private static final String                 RemoveAbandonedTimeout="removeAbandonedTimeout";
+	private static final String                 		  LogAbandoned="logAbandoned";
 
 	
 	public  static  boolean     EHCACHE=false;
@@ -163,11 +165,13 @@ public class Slave2ConnectionFactory {
 				dd.setTestWhileIdle(StringUtil.StringToBoolean(BUNDLE.getString("s2_testWhileIdle")));
 				dd.setTestOnReturn(StringUtil.StringToBoolean(BUNDLE.getString(TestOnReturn)));
 				dd.setTestOnBorrow(StringUtil.StringToBoolean(BUNDLE.getString(TestOnBorrow)));
-				try {
-					dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
-					dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
-				} catch (Exception e) {
-				}
+				 try {
+					 dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
+					 dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
+					 dd.setLogAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(LogAbandoned)));
+				 } catch (Exception e) {
+					 logger.error("参数[RemoveAbandoned、RemoveAbandonedTimeout、LogAbandoned]配置或转换类型异常：",e.getMessage());
+				 }
 	
 				Slave2ConnectionFactory.DIALECT    = BUNDLE.getString("s2_dialect");
 				Slave2ConnectionFactory.SQL_FORMAT = StringUtil.StringToBoolean(BUNDLE.getString("s2_sql_format"));

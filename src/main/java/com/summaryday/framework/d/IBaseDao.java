@@ -333,6 +333,14 @@ public interface IBaseDao {
 		 * @return
 		 */
 		public boolean removeByTransaction(Object[] obj);
+
+	/**
+	 * 批量删除根据数组id
+	 * @param ids   filed_id:id字段名称
+	 * @param tablename
+	 * @return
+	 */
+		public boolean removeByTransaction(Object[] ids,String filed_id,String tablename);
 		
 		/**
 		 * 多表记录更新，手动提交事务

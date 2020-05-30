@@ -1518,6 +1518,80 @@ public class DBMasterSlaveHelper {
 		return false;
 
 	}// end
+
+
+	/**
+	 * 批量删除根据数组id
+	 * @param ids   filed_id:id字段名称
+	 * @param tablename
+	 * @return
+	 */
+	public  boolean removeByTransaction(Object[] ids,String filed_id,String tablename) {
+
+		int i = 0;
+		String sql = "DELETE FROM ";
+
+		Connection connection=null;
+		try {
+			if (ids != null && tablename!=null) {
+				SqlCommonDAO helper = new SqlCommonDAO();
+				try {
+					if (connection == null || connection.isClosed()) {
+						connection = ConnectionFactory.getInstance().getConnection();
+					}
+					//自动事物提交关闭，交由程序自行操作处理
+					connection.setAutoCommit(false);
+					helper.setConnection(connection);
+					helper.setTransaction(false);
+					sql+=tablename;
+					boolean isStringIdType=(ids[0] instanceof String);
+					boolean isIntegerIdType=(ids[0] instanceof Integer);
+					String in=" where "+filed_id+" in (";
+					for(int n=0;n<ids.length;n++){
+						if(n==ids.length-1){
+							if(isStringIdType){in += "'"+ids[n] + "')";}
+							if(isIntegerIdType){in += ids[n] + ")";}
+						}else {
+							if(isStringIdType){in += "'"+ids[n] + "',";}
+							if(isIntegerIdType){in += ids[n] + ",";}
+						}
+					}
+
+					Command c = new Command();
+					helper.setCommand(c);
+					c.setCache(false);
+					c.setTables(new String[] { tablename });
+					c.setSql(sql+in);
+					int m = helper.executeCommit();
+					i+=m;
+
+					if(ids.length==i){
+						connection.commit();
+						log.info("成功批量删除记录数为："+i);
+					}else{
+						try {
+							connection.rollback();
+						} catch (SQLException e1) {
+							log.error("删除对象事物回滚异常:",e1);
+						}
+					}
+				} catch (Exception e) {
+					try {
+						connection.rollback();
+					} catch (SQLException e1) {
+						// TODO Auto-generated catch block
+						log.error("删除对象事物回滚异常:",e1);
+					}
+					log.error("事物删除对象异常:",e);
+				}
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			log.error("事物删除对象异常1:",e);
+		}
+
+		return ids.length==i ? true : false;
+	}
 	
 	/**
 	 * 更新实体对象

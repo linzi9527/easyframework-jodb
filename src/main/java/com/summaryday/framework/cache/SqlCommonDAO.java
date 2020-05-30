@@ -219,25 +219,34 @@ public class SqlCommonDAO {
 					st = connection.createStatement();
 					rs = st.executeUpdate(command.getSql());
 				}
-				
+				Sql_Format(command.getSql());
 				if (command.isCache()) {
 					// 更新缓存
 					update(command.getTables()[0], connection);
 				}
-				Sql_Format(command.getSql());
+
 					
 					
 			} catch (Exception e) {
-				log.error("出现异常:"+command.getSql(),e);
+				log.error("当前执行语句:"+command.getSql()+"\n异常："+e.getMessage());
 			} finally {
 				if(isTransaction){
-				this.closePreparedStatement(pst);
-				this.close(connection, st, null);
+					if(rs>0){
+						try {
+							connection.commit();
+						} catch (SQLException e) {
+							log.error("事务提交异常："+e.getMessage());
+						}
+					}
+					this.closePreparedStatement(pst);
+					this.close(connection, st, null);
 				}
 			}
 		}
 		return rs;
 	}
+
+
 
 	//批量执行不用关闭连接，在上一级处理
 	public int executeUpdates(Connection conn) {
@@ -254,14 +263,11 @@ public class SqlCommonDAO {
 					st = conn.createStatement();
 					rs = st.executeUpdate(command.getSql());
 				}
-				
+				Sql_Format(command.getSql());
 				if (command.isCache()) {
 					// 更新缓存
 					update(command.getTables()[0], connection);
 				}
-				Sql_Format(command.getSql());
-					
-					
 			} catch (Exception e) {
 				log.error("批量更新出现异常:"+e.getMessage());
 			} 
@@ -279,9 +285,7 @@ public class SqlCommonDAO {
 			try {
 				st = connection.createStatement();
 				num = st.executeUpdate(sql);
-			
 				Sql_Format(sql);
-					
 			} catch (Exception e) {
 				log.error("多操作之间事物手动处理异常:"+e.getMessage());
 			}finally{
@@ -333,9 +337,9 @@ public class SqlCommonDAO {
 			try {
 				st = connection.createStatement();
 				rs = st.executeUpdate(command.getSql());
-				//Sql_Format(command.getSql());
+				Sql_Format(command.getSql());
 			} catch (Exception e) {
-				log.error("批量入库异常：",e);
+				log.error("批量操作("+command.getSql()+")异常：",e);
 			}finally {
 				if(isTransaction){
 				  this.closeConnection(connection);
@@ -354,15 +358,15 @@ public class SqlCommonDAO {
 			try {
 				st = conn.createStatement();
 			} catch (Exception e) {
-				log.error("executeCommit-createStatement批量入库异常：",e);
+				log.error("批量入库异常：",e);
 			}
 			try {
 				 rs = st.executeUpdate(all_sql.toString());
-                int[] n=st.executeBatch();
-                    rs=n.length;
-				    st.clearBatch();
+                /*int[] n=st.executeBatch();
+				rs=n.length;
+				    st.clearBatch();*/
 			} catch (Exception e) {
-				log.error("executeCommit-executeUpdate批量入库异常：\n all_sql:"+all_sql,e);
+				log.error("批量("+all_sql+")操作异常:",e);
 			}finally{
 				try {
 					st.close();
@@ -386,6 +390,7 @@ public class SqlCommonDAO {
 				log.error("executeCommits-prepareStatement批量入库异常：",e);
 			}
 			try {
+				//rs = ps.executeUpdate(all_sql.toString());
 				ps.addBatch(all_sql.toString());
 				int[] n=ps.executeBatch();
 					rs=n.length;

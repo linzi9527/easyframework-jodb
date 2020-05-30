@@ -3,9 +3,9 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.easyframework-root</groupId>
 	<artifactId>easyframework-jodb</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.4</version>
 
-	<repositories>
+	<!--<repositories>
 		<repository>
 			<id>myGroup</id>
 			<name>iwork-group</name>
@@ -24,7 +24,7 @@
 				<enabled>true</enabled>
 			</releases>
 		</pluginRepository>
-	</pluginRepositories>
+	</pluginRepositories>-->
 
 	<dependencies>
 		<dependency>
@@ -35,13 +35,15 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
-			<version>1.0.11</version>
+			<version>1.1.10</version>
 		</dependency>
 
 		<dependency>
-			<groupId>org.ehcache</groupId>
-			<artifactId>ehcache</artifactId>
-			<version>1.6.2</version>
+			<!--<groupId>org.ehcache</groupId>
+			<artifactId>ehcache</artifactId>-->
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache-core</artifactId>
+			<version>2.6.11</version>
 		</dependency>
 		<dependency>
 			<groupId>jdom</groupId>
@@ -112,7 +114,7 @@
 			<artifactId>commons-fileupload</artifactId>
 			<version>1.3.1</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>javax.el</groupId>
 			<artifactId>javax.el-api</artifactId>
 			<version>2.2.5</version>
@@ -128,14 +130,6 @@
 			<optional>true</optional>
 		</dependency>
 		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>1.2.17</version>
-			<scope>compile</scope>
-			<optional>true</optional>
-		</dependency>
-
-		<dependency>
 			<groupId>cn.jpush.api</groupId>
 			<artifactId>jpush-client</artifactId>
 			<version>3.2.3</version>
@@ -145,6 +139,8 @@
 			<artifactId>spring-websocket</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		-->
+
 		<dependency>
 			<groupId>net.sf.json-lib</groupId>
 			<artifactId>json-lib</artifactId>
@@ -172,16 +168,26 @@
 			<artifactId>commons-collections</artifactId>
 			<version>3.2.1</version>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>jstl</groupId>
 			<artifactId>jstl</artifactId>
 			<version>1.1.2</version>
+		</dependency>-->
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>1.2</version>
 		</dependency>
 		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.2.4</version>
+		</dependency>
+<!--		<dependency>
 			<groupId>taglibs</groupId>
 			<artifactId>standard</artifactId>
 			<version>1.1.2</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -195,13 +201,19 @@
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.6.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-1.2-api</artifactId>
 			<version>2.8.2</version>
 		</dependency>
-		<dependency>
+<!--		<dependency>
 			<groupId>redis.clients</groupId>
 			<artifactId>jedis</artifactId>
 			<version>2.9.0</version>
@@ -210,7 +222,7 @@
 			<groupId>org.apache.commons</groupId>
 			<artifactId>commons-pool2</artifactId>
 			<version>2.4.2</version>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
 			<artifactId>jackson-mapper-asl</artifactId>
@@ -239,26 +251,19 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<!--打入包内某一个指定文件，默认是全部打入包内 <includes> <include>**/*.md</include> </includes> -->
-				<!-- 不打入包内,正式打包要注解，不打入包内，但junit测试要放开 -->
-				<!-- 本地测试需要注释下面内容-->
-			   <!-- <excludes>
+				<!-- 资源文件不打入包内,正式打包要注解excludes,就不打入包内-->
+				<!-- 本地Junit测试需要放开下面excludes内容-->
+				<!--
+			    <excludes>
 					<exclude>**/*.xml</exclude>
 					<exclude>**/*.properties</exclude>
 					<exclude>**/*.md</exclude>
-				</excludes>-->
-				
+                    <exclude>**/*.bak</exclude>
+				</excludes>
+				-->
 			</resource>
 		</resources>
-		<!--单元测试相关的所有资源路径，配制方法与resources类似 -->
-		<!-- <testResources>
-			<testResource>
-				<targetPath />
-				<filtering />
-				<directory />
-				<includes />
-				<excludes />
-			</testResource>
-		</testResources> -->
+
 		<plugins>
 			<plugin>
 			 	<groupId>org.apache.maven.plugins</groupId>  

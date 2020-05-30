@@ -189,6 +189,10 @@ public class BaseDaoImpl implements IBaseDao {
 		return dbHelper.removeByTransaction(obj);
 	}
 
+	public boolean removeByTransaction(Object[] ids, String filed_id, String tablename) {
+		return dbHelper.removeByTransaction(ids,  filed_id,  tablename);
+	}
+
 	public boolean updateByTransaction(Object[] obj) {
 		// TODO Auto-generated method stub
 		return dbHelper.updateByTransaction(obj);

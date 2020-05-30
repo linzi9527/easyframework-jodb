@@ -62,7 +62,7 @@ public class Slave1ConnectionFactory {
 	private static final String                           TestOnReturn="s1_testOnReturn";
 	private static final String                        RemoveAbandoned="removeAbandoned";
 	private static final String                 RemoveAbandonedTimeout="removeAbandonedTimeout";
-
+	private static final String                 		  LogAbandoned="logAbandoned";
 	
 	public  static  boolean     EHCACHE=false;
 	public  static  String     DIALECT =null;
@@ -122,7 +122,7 @@ public class Slave1ConnectionFactory {
 					Slave1ConnectionFactory.EHCACHE   =StringUtil.StringToBoolean(BUNDLE.getString("ehcache"));
 					logger.info("\n"+
 					"=====================================\n"+
-					"‖                         c3p0初始化从库（01）               ‖\n"+
+					"‖         c3p0初始化从库（01）         ‖\n"+
 					"=====================================\n"
 					+"\n");
 		} catch (Exception e) {
@@ -162,18 +162,20 @@ public class Slave1ConnectionFactory {
 				dd.setTestWhileIdle(StringUtil.StringToBoolean(BUNDLE.getString("s1_testWhileIdle")));
 				dd.setTestOnReturn(StringUtil.StringToBoolean(BUNDLE.getString(TestOnReturn)));
 				dd.setTestOnBorrow(StringUtil.StringToBoolean(BUNDLE.getString(TestOnBorrow)));
-				try {
-					dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
-					dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
-				} catch (Exception e) {
-				}
+				 try {
+					 dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
+					 dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
+					 dd.setLogAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(LogAbandoned)));
+				 } catch (Exception e) {
+					 logger.error("参数[RemoveAbandoned、RemoveAbandonedTimeout、LogAbandoned]配置或转换类型异常：",e.getMessage());
+				 }
 	
 				Slave1ConnectionFactory.DIALECT    = BUNDLE.getString("s1_dialect");
 				Slave1ConnectionFactory.SQL_FORMAT = StringUtil.StringToBoolean(BUNDLE.getString("s1_sql_format"));
 				Slave1ConnectionFactory.EHCACHE    = StringUtil.StringToBoolean(BUNDLE.getString("s1_ehcache"));
 				logger.info("\n"+
 						"=====================================\n"+
-						"‖                         druid初始化从库（01）                  ‖\n"+
+						"‖         druid初始化从库（01）        ‖\n"+
 						"=====================================\n"
 						+"\n");
 		} catch (Exception e) {
@@ -226,8 +228,8 @@ public class Slave1ConnectionFactory {
 	                }
 	                logger.info("\n"+
 							"=========================================================================\n"+
-							"‖                                                            数据源实例化                                                                   ‖\n"+
-							"‖                   "+instance+"	 	‖\n"+
+							"‖       数据源实例化                                                      ‖\n"+
+							"‖       "+instance+"	 		‖\n"+
 							"=========================================================================\n"
 							+"\n");
 	            }

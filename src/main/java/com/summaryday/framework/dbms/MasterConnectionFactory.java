@@ -66,7 +66,7 @@ public class MasterConnectionFactory {
 	private static final String                           TestOnReturn="master_testOnReturn";
 	private static final String                        RemoveAbandoned="master_removeAbandoned";
 	private static final String                 RemoveAbandonedTimeout="master_removeAbandonedTimeout";
-
+	private static final String                 		  LogAbandoned="master_logAbandoned";
 	
 	public  static  boolean       EHCACHE=false;
 	public  static  String       DIALECT =null;
@@ -85,7 +85,7 @@ public class MasterConnectionFactory {
 	if(LoadPropertiesUtils.Is_MS_OPEN&&LoadPropertiesUtils.db_Master_W){	
 		logger.info("\n"+
 		"=====================================\n"+
-		"‖                    开启数据库主从db模式初始化            ‖\n"+
+		"‖      开启数据库主从db模式初始化       ‖\n"+
 		"=====================================\n"
 		+"\n");
 		try {
@@ -129,7 +129,7 @@ public class MasterConnectionFactory {
 					
 					logger.info("\n"+
 					"=====================================\n"+
-					"‖                         c3p0初始化                               ‖\n"+
+					"‖             c3p0初始化             ‖\n"+
 					"=====================================\n"
 					+"\n");
 		} catch (Exception e) {
@@ -169,12 +169,17 @@ public class MasterConnectionFactory {
 				dd.setTestWhileIdle(StringUtil.StringToBoolean(BUNDLE.getString("master_testWhileIdle")));
 				dd.setTestOnReturn(StringUtil.StringToBoolean(BUNDLE.getString(TestOnReturn)));
 				dd.setTestOnBorrow(StringUtil.StringToBoolean(BUNDLE.getString(TestOnBorrow)));
-				dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
-				dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
-	
+
+				 try {
+					 dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
+					 dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
+					 dd.setLogAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(LogAbandoned)));
+				 } catch (Exception e) {
+					 logger.error("参数[RemoveAbandoned、RemoveAbandonedTimeout、LogAbandoned]配置或转换类型异常：",e.getMessage());
+				 }
 				logger.info("\n"+
 						"=====================================\n"+
-						"‖                         druid初始化                               ‖\n"+
+						"‖            druid初始化             ‖\n"+
 						"=====================================\n"
 						+"\n");
 		} catch (Exception e) {

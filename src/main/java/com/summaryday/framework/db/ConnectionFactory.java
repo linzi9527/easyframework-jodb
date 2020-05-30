@@ -61,6 +61,7 @@ public class ConnectionFactory {
 	private static final String                           TestOnReturn="testOnReturn";
 	private static final String                        RemoveAbandoned="removeAbandoned";
 	private static final String                 RemoveAbandonedTimeout="removeAbandonedTimeout";
+	private static final String                 		  LogAbandoned="logAbandoned";
 	
 	public  static  boolean     EHCACHE=false;
 	public  static  String     DIALECT =null;
@@ -167,8 +168,9 @@ public class ConnectionFactory {
 				try {
 					dd.setRemoveAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(RemoveAbandoned)));
 					dd.setRemoveAbandonedTimeout(StringUtil.StringToInteger(BUNDLE.getString(RemoveAbandonedTimeout)));
+					dd.setLogAbandoned(StringUtil.StringToBoolean(BUNDLE.getString(LogAbandoned)));
 				} catch (Exception e) {
-					
+					logger.error("参数[RemoveAbandoned、RemoveAbandonedTimeout、LogAbandoned]配置或转换类型异常：",e.getMessage());
 				}
 				
 				ConnectionFactory.DIALECT    = BUNDLE.getString("dialect");
@@ -176,7 +178,7 @@ public class ConnectionFactory {
 				ConnectionFactory.EHCACHE    = StringUtil.StringToBoolean(BUNDLE.getString("ehcache"));
 				logger.info("\n"+
 						"=====================================\n"+
-						"‖                         druid初始化                               ‖\n"+
+						"‖             druid初始化            ‖\n"+
 						"=====================================\n"
 						+"\n");
 		} catch (Exception e) {
@@ -231,8 +233,8 @@ public class ConnectionFactory {
 	                }
 	                logger.info("\n"+
 							"=========================================================================\n"+
-							"‖                                                            数据源实例化                                                                   ‖\n"+
-							"‖                   "+instance+"	 	‖\n"+
+							"‖  数据源实例化                                                           ‖\n"+
+							"‖  "+instance+" 		 ‖\n"+
 							"=========================================================================\n"
 							+"\n");
 	            }
