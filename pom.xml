@@ -242,7 +242,7 @@
 	</dependencies>
 	<properties>
 		<spring.version>4.0.6.RELEASE</spring.version>
-		<quartz.version>2.2.2</quartz.version>
+		<quartz.version>2.3.2</quartz.version>
 		<junit.version>4.11</junit.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	</properties>
