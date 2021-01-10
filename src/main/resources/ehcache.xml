@@ -5,7 +5,7 @@
  <!-- 
  <diskStore path="java.io.tmpdir" />
   -->
-  <diskStore path="D:/ehcache" />
+  <diskStore path="./ehcache" />
  <defaultCache eternal="false" 
    maxElementsInMemory="1000"
    overflowToDisk="false" 

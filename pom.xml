@@ -1,9 +1,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.easyframework-root</groupId>
-	<artifactId>easyframework-jodb</artifactId>
-	<version>1.0.4</version>
+<!--	<groupId>com.easyframework-root</groupId>-->
+<!--	<artifactId>easyframework-jodb</artifactId>-->
+	<groupId>com.summaryday</groupId>
+	<artifactId>summaryday</artifactId>
+	<version>4.0</version>
 
 	<!--<repositories>
 		<repository>
@@ -251,16 +253,14 @@
 			<resource>
 				<directory>src/main/resources</directory>
 				<!--打入包内某一个指定文件，默认是全部打入包内 <includes> <include>**/*.md</include> </includes> -->
-				<!-- 资源文件不打入包内,正式打包要注解excludes,就不打入包内-->
-				<!-- 本地Junit测试需要放开下面excludes内容-->
-				<!--
-			    <excludes>
+				<!-- 资源文件不打入包内,正式打包要放开注解excludes,就不打入包内-->
+				<!-- 本地Junit测试需要屏蔽下面excludes内容,测试就有了配置文件-->
+			  <!--  <excludes>
 					<exclude>**/*.xml</exclude>
 					<exclude>**/*.properties</exclude>
 					<exclude>**/*.md</exclude>
                     <exclude>**/*.bak</exclude>
-				</excludes>
-				-->
+				</excludes>-->
 			</resource>
 		</resources>
 

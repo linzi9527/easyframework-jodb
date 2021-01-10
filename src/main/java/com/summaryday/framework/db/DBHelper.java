@@ -668,6 +668,7 @@ public class DBHelper {
 					helper.setConnection(connection);
 					Command c = new Command();
 					helper.setCommand(c);
+					//helper.setTransaction(false);
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sb.toString());
@@ -1413,6 +1414,7 @@ public class DBHelper {
 							helper.setConnection(connection);
 							Command c = new Command();
 							helper.setCommand(c);
+							//helper.setTransaction(false);
 							c.setCache(false);
 							c.setTables(new String[] { tbl_name });
 							c.setSql(sql.toString());
@@ -1761,6 +1763,7 @@ public class DBHelper {
 					Command c = new Command();
 					helper.setConnection(connection);
 					helper.setCommand(c);
+					//helper.setTransaction(false);
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sql.toString());
@@ -1881,7 +1884,7 @@ public class DBHelper {
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sql.toString());
-					i = helper.executeUpdate();
+					i = helper.exeUpdate();
 				} catch (Exception e) {
 					e.printStackTrace();
 				} 
@@ -2102,6 +2105,7 @@ public class DBHelper {
 					Command c = new Command();
 					helper.setConnection(connection);
 					helper.setCommand(c);
+					//helper.setTransaction(false);
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sql.toString());
@@ -3783,7 +3787,7 @@ public class DBHelper {
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sb.toString());
-					i = helper.executeUpdate();
+					i = helper.exeUpdate();
 				} catch (Exception e) {
 					log.error("事物保存对象异常："+sb.toString(),e);
 				} /*finally {
@@ -4011,7 +4015,7 @@ public class DBHelper {
 							c.setCache(false);
 							c.setTables(new String[] { tbl_name });
 							c.setSql(sql.toString());
-							i = helper.executeUpdate();
+							i = helper.exeUpdate();
 						} catch (Exception e) {
 							log.error("事物更新操作异常sql:"+sql,e);
 						}

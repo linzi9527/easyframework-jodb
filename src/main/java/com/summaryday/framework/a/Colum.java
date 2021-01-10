@@ -13,7 +13,7 @@ public @interface Colum {
 
 	boolean isNUll() default true;
 
-	public enum ObjTypes{STRING,INT,BOOLEAN,LONG,VARCHAR,INTEGER,Timestamp,Date,SQLDate,DOUBLE,FLOAT,BigDecimal};
+	public enum ObjTypes{STRING,INT,BOOLEAN,LONG,VARCHAR,INTEGER,Timestamp,Date,DateTime,DOUBLE,FLOAT,BigDecimal};
 	
 	public ObjTypes type() default ObjTypes.STRING;
 }

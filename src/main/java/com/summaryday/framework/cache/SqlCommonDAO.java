@@ -51,6 +51,10 @@ public class SqlCommonDAO {
 	public void setConnection(Connection connection) throws SQLException {
 		//log.info("拿到一个连接...");
 		this.connection = connection;
+		if(this.connection!=null){
+			this.connection.setAutoCommit(this.isTransaction);
+		}
+		log.debug("获取一条连接:"+this.connection+",当前事务状态:"+(this.isTransaction==true?"默认自动提交":"开启手动提交"));
 	}
 	public Command getCommand() {
 		return command;
@@ -192,7 +196,8 @@ public class SqlCommonDAO {
 				Sql_Format(command.getSql());
 			} catch (Exception e) {
 				log.error("放入缓存中异常："+e.getMessage());
-			} finally {
+			}
+			finally {
 				if(isTransaction){
 				this.closePreparedStatement(pst);
 				this.close(connection, st, resultSet);
@@ -230,23 +235,68 @@ public class SqlCommonDAO {
 			} catch (Exception e) {
 				log.error("当前执行语句:"+command.getSql()+"\n异常："+e.getMessage());
 			} finally {
-				if(isTransaction){
+
 					if(rs>0){
 						try {
-							connection.commit();
+							if(!isTransaction){
+								connection.commit();
+							}
 						} catch (SQLException e) {
 							log.error("事务提交异常："+e.getMessage());
 						}
 					}
 					this.closePreparedStatement(pst);
 					this.close(connection, st, null);
-				}
+
 			}
 		}
 		return rs;
 	}
 
+	//两个对象操作
+	public int exeUpdate() {
+		PreparedStatement pst = null;
+		Statement st = null;
+		int rs =0;
+		if(EncryptUtils.LOCK){
+			try {
+				if (command.getParams() != null && command.getParams().length > 0) {
+					pst = connection.prepareStatement(command.getSql());
+					setValues(pst, command.getParams());
+					rs = pst.executeUpdate();
+				} else {
+					st = connection.createStatement();
+					rs = st.executeUpdate(command.getSql());
+				}
+				Sql_Format(command.getSql());
+				if (command.isCache()) {
+					// 更新缓存
+					update(command.getTables()[0], connection);
+				}
 
+
+
+			} catch (Exception e) {
+				log.error("当前执行语句:"+command.getSql()+"\n异常："+e.getMessage());
+			}
+			/*finally {
+
+				if(rs>0){
+					try {
+						if(!isTransaction){
+							connection.commit();
+						}
+					} catch (SQLException e) {
+						log.error("事务提交异常："+e.getMessage());
+					}
+				}
+				this.closePreparedStatement(pst);
+				this.close(connection, st, null);
+
+			}*/
+		}
+		return rs;
+	}
 
 	//批量执行不用关闭连接，在上一级处理
 	public int executeUpdates(Connection conn) {
@@ -364,7 +414,7 @@ public class SqlCommonDAO {
 				 rs = st.executeUpdate(all_sql.toString());
                 /*int[] n=st.executeBatch();
 				rs=n.length;
-				    st.clearBatch();*/
+				st.clearBatch();*/
 			} catch (Exception e) {
 				log.error("批量("+all_sql+")操作异常:",e);
 			}finally{

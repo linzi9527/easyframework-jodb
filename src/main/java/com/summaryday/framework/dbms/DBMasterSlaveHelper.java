@@ -85,7 +85,6 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 查表记录数 from tbl_name where xxx=iii
 	 * 
-	 * @param sql
 	 * @return
 	 */
 	public int QueryCount(String from_sql) {
@@ -143,7 +142,6 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 查对象的数量
 	 * 
-	 * @param vo的数量
 	 * @return
 	 */
 	public int findCount(Class<?> o) {
@@ -348,9 +346,9 @@ public class DBMasterSlaveHelper {
 	 *            :实体对象Obj.class
 	 * @param isWhere
 	 *            : where id=id and ...
-	 * @param group
+	 * @param
 	 *            : group by ...
-	 * @param order
+	 * @param
 	 *            : order by ...
 	 * @param isCache
 	 *            : true or false 是否开启查询缓存
@@ -1073,6 +1071,7 @@ public class DBMasterSlaveHelper {
 				try {
 					if(num>0){
 						connection.commit();
+						SqlCommonDAO.Sql_Format(all_sql.toString());
 						System.out.println("=======批量入库事务提交成功！=============");
 						return true;
 					}else {
@@ -1600,7 +1599,6 @@ public class DBMasterSlaveHelper {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
 	 */
 	@SuppressWarnings({ "static-access" })
 	public boolean update(Object obj) {
@@ -1782,7 +1780,6 @@ public class DBMasterSlaveHelper {
 	 * @return
 	 * @throws IllegalArgumentException
 	 * @throws IllegalAccessException
-	 * @throws MyException
 	 */
 	@SuppressWarnings({ "static-access" })
 	public  boolean updateByTransaction(Object[] obj) {
@@ -1919,7 +1916,6 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 根据实体Object删除记录
 	 * 
-	 * @param id
 	 * @return
 	 */
 	@SuppressWarnings("static-access")
@@ -2372,7 +2368,7 @@ public class DBMasterSlaveHelper {
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sql.toString());
-					i = helper.executeUpdate();
+					i = helper.exeUpdate();
 				} catch (Exception e) {
 					log.error("删除对象异常:", e);
 				}
@@ -2437,7 +2433,7 @@ public class DBMasterSlaveHelper {
 					c.setCache(false);
 					c.setTables(new String[] { tbl_name });
 					c.setSql(sql.toString());
-					i = helper.executeUpdate();
+					i = helper.exeUpdate();
 				} catch (Exception e) {
 					log.error("删除对象异常:", e);
 				}
@@ -3014,7 +3010,6 @@ public class DBMasterSlaveHelper {
 	
 	/**
 	 * 批量创建多表
-	 * @param dBSetting
 	 * @param sqlList
 	 * @return
 	 */
@@ -3134,7 +3129,6 @@ public class DBMasterSlaveHelper {
 	 * 
 	 * query(查询方法) (注意事项： – 目前只支持 Map List返回值)
 	 * 
-	 * @param resultClass
 	 *            返回类型 如: Map.class
 	 * @return
 	 * @throws SQLException
@@ -3572,9 +3566,6 @@ public class DBMasterSlaveHelper {
 	/**
 	 * 获取所有表名
 	 * 
-	 * @param dbname
-	 * @param user
-	 * @param conn
 	 * @return
 	 * @throws UnsupportedEncodingException
 	 */
@@ -3644,7 +3635,6 @@ public class DBMasterSlaveHelper {
 	 * 动态bean使用map<k,n>来代替
 	 * 
 	 * @param sql
-	 * @param isCache
 	 * @return
 	 */
 	public Map<String, Object> queryMap(String sql) {
@@ -3682,7 +3672,6 @@ public class DBMasterSlaveHelper {
 	 * 动态bean使用map<k,n>来代替,返回list<bean>由list<map<k,o>>代替
 	 * 
 	 * @param sql
-	 * @param isCache
 	 * @return
 	 */
 	public List<Map<String, Object>> queryListMap(String sql) {
@@ -3869,7 +3858,7 @@ public class DBMasterSlaveHelper {
 				c.setCache(false);
 				c.setTables(new String[] { tbl_name });
 				c.setSql(sb.toString());
-				i = helper.executeUpdate();
+				i = helper.exeUpdate();
 			} catch (Exception e) {
 				log.error("事物保存对象异常：" + sb.toString(), e);
 			} /*
@@ -4026,7 +4015,7 @@ public class DBMasterSlaveHelper {
 							c.setCache(false);
 							c.setTables(new String[] { tbl_name });
 							c.setSql(sql.toString());
-							i = helper.executeUpdate();
+							i = helper.exeUpdate();
 						} catch (Exception e) {
 							log.error("事物更新操作异常sql:" + sql, e);
 						}

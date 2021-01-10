@@ -8,7 +8,7 @@ import com.summaryday.framework.db.DBSetting;
 
 public interface IBaseDao {
 	
-	
+	//版本v1.0-2.2
 	/**
 	 * 设置实体类自动查询
 	 * @param c
@@ -195,10 +195,10 @@ public interface IBaseDao {
 	     * @param sortMode   排序方式：ASC，DESC 任选其一
 	     */
 	 public  <T> void sortList(List<T> list, final String sortField, final String sortMode);
-	 
+	 //版本v1.0-2.2   summaryday-2.2.jar end
 	
 	 
-	 
+	 //版本更新v3.0
 	  /**
 	     * 动态bean使用map<k,n>来代替
 	     * @param sql
@@ -427,7 +427,10 @@ public interface IBaseDao {
 		 * @return
 		 */
 		public int QueryCount(String from_sql);
-		
+	   //版本v3.0 summaryday-3.0.jar end
+
+
+	    //版本更新easyframework-jodb-0.0.1-SNAPSHOT-0.0.1.jar
 		/**
 		 * 同一事物下，执行多条sql语句后一起提交事物
 		 * @param multiSQL:Map<String,Object[]> 
@@ -442,8 +445,12 @@ public interface IBaseDao {
 		 * @param delObj
 		 * @return
 		 */
-		public boolean exeCUDByTransaction(Object addObj,Object updateObj,Object delObj); 
-		
+		public boolean exeCUDByTransaction(Object addObj,Object updateObj,Object delObj);
+
+		//版本easyframework-jodb-0.0.1-SNAPSHOT-0.0.1.jar end
+
+
+		//版本更新easyframework-jodb-1.0.5.jar
 		/**
 		 * 新增、更新、删除在同意事物下执行
 		 * 无限多个操作事物处理
@@ -462,6 +469,6 @@ public interface IBaseDao {
 		 * @return
 		 */
 		public  boolean removeByTransaction(String[] ids,Class<?> o);
-		
+		//版本easyframework-jodb-1.0.5.jar end
 		
 }
