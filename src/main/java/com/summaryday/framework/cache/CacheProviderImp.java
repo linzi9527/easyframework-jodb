@@ -24,12 +24,15 @@ public class CacheProviderImp implements CacheProvider {
 	public CacheProviderImp() {
 		InputStream in = getClass().getResourceAsStream("ehcache.xml");
 		CacheManager manager = new CacheManager(in); // 解析缓存配置文件
-		 String []names=manager.getCacheNames();
+		 String[] names=manager.getCacheNames();
 		 if(names.length==1&&names[0].equals("jdbc_cache")){
 			  this.cache = manager.getCache("jdbc_cache");// 创建缓存
 			System.out.println("\n默认缓存jdbc_cache创建成功...");
 		 }else{
 			 for(String cacheName:names){
+			 	if(cacheName.contains(".")) {
+					cacheName = cacheName.toLowerCase().replaceAll(".", "_");
+				}
 				 Cache cache= manager.getCache(cacheName);
 				 if(!cacheName.equals("jdbc_cache")){
 					 map.put(cacheName,cache);// 创建缓存

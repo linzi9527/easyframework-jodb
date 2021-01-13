@@ -1,13 +1,16 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-<!--	<groupId>com.easyframework-root</groupId>-->
-<!--	<artifactId>easyframework-jodb</artifactId>-->
-	<groupId>com.summaryday</groupId>
+	<groupId>com.easyframework-root</groupId>
+	<artifactId>easyframework-jodb</artifactId>
+	<version>1.0.0</version>
+<!--	<groupId>com.summaryday</groupId>
 	<artifactId>summaryday</artifactId>
-	<version>4.0</version>
+	<version>4.0</version>-->
 
-	<!--<repositories>
+	<!--
+	放开从113服务器拉取jar,屏蔽后默认从本机拉取
+	 <repositories>
 		<repository>
 			<id>myGroup</id>
 			<name>iwork-group</name>
@@ -38,6 +41,12 @@
 			<groupId>com.alibaba</groupId>
 			<artifactId>druid</artifactId>
 			<version>1.1.10</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.hot.dataredis</groupId>
+			<artifactId>HotDataRedis</artifactId>
+			<version>1.0-SNAPSHOT</version>
 		</dependency>
 
 		<dependency>
@@ -255,12 +264,13 @@
 				<!--打入包内某一个指定文件，默认是全部打入包内 <includes> <include>**/*.md</include> </includes> -->
 				<!-- 资源文件不打入包内,正式打包要放开注解excludes,就不打入包内-->
 				<!-- 本地Junit测试需要屏蔽下面excludes内容,测试就有了配置文件-->
-			  <!--  <excludes>
+			   <!-- <excludes>
 					<exclude>**/*.xml</exclude>
 					<exclude>**/*.properties</exclude>
 					<exclude>**/*.md</exclude>
                     <exclude>**/*.bak</exclude>
-				</excludes>-->
+				</excludes>
+				<filtering>false</filtering>-->
 			</resource>
 		</resources>
 
@@ -283,6 +293,7 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 </project>

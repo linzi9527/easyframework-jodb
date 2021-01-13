@@ -6,26 +6,35 @@
  <diskStore path="java.io.tmpdir" />
   -->
   <diskStore path="./ehcache" />
- <defaultCache eternal="false" 
+<!-- <defaultCache eternal="false"
    maxElementsInMemory="1000"
    overflowToDisk="false" 
    diskPersistent="false" 
    timeToIdleSeconds="0"
    timeToLiveSeconds="60" 
-   memoryStoreEvictionPolicy="LRU" />
+   memoryStoreEvictionPolicy="LRU" />-->
 <!-- 
 1、 timeToIdleSeconds , 多长时间不访问该缓存, 那么ehcache 就会清除该缓存.
 2、 timeToLiveSeconds , 缓存的存活时间, 从开始创建的时间算起.
  -->
- <cache name="jdbc_cache" 
+ <cache name="jdbc_cache"
    eternal="false"
-   maxElementsInMemory="10" 
+   maxElementsInMemory="2"
    overflowToDisk="true"
    diskPersistent="false" 
    timeToIdleSeconds="120"
    timeToLiveSeconds="120"
    memoryStoreEvictionPolicy="LRU" />
-   
+
+<!-- <cache name="com.test.vo.User"
+        eternal="false"
+        maxElementsInMemory="10"
+        overflowToDisk="true"
+        diskPersistent="false"
+        timeToIdleSeconds="120"
+        timeToLiveSeconds="120"
+        memoryStoreEvictionPolicy="LRU" />-->
+
  <!-- <cache name="com.summaryday.framework.m.User" 
    eternal="false"
    maxElementsInMemory="10" 

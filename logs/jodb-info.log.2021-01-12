@@ -1,0 +1,1387 @@
+[2021-01-12 14:31:42] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:31:42] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:31:42] [ERROR] com.hot.dataredis.Config.getRedisResource(116) | db.properties加载失败:
+java.lang.NumberFormatException: null
+	at java.lang.Integer.parseInt(Integer.java:542)
+	at java.lang.Integer.<init>(Integer.java:867)
+	at com.hot.dataredis.Config.getRedisResource(Config.java:73)
+	at com.hot.dataredis.Config.<clinit>(Config.java:135)
+	at com.summaryday.framework.db.DBHelper.getInstance(DBHelper.java:37)
+	at com.test.TestSingleDB.setUp(TestSingleDB.java:22)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:24)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+[2021-01-12 14:36:55] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:36:55] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:36:55] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":5000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}"]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 14:42:17] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:42:17] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:42:17] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":5000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 14:42:18] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 14:42:18] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 14:42:18] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 14:42:18] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 14:42:19] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 14:42:19] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:694
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(342) | 从mysql拉取数据5
+[2021-01-12 14:42:20] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:44:33] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:44:33] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:44:33] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":5000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 14:44:34] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 14:44:34] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 14:44:34] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 14:44:34] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 14:44:35] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 14:44:35] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:474
+[2021-01-12 14:45:19] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 14:45:19] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 14:45:19] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 14:45:19] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 14:45:19] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:46:01] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(342) | 从mysql拉取数据5
+[2021-01-12 14:46:02] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:52:48] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:52:48] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:52:48] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":5000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 14:52:48] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@7c7b252e
+[2021-01-12 14:52:48] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@48f2bd5b======================
+[2021-01-12 14:52:49] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 14:52:49] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@44be0077 		 ‖
+=========================================================================
+
+
+[2021-01-12 14:52:49] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 14:52:49] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:539
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据5
+[2021-01-12 14:52:51] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 14:59:57] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 14:59:57] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 14:59:57] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 14:59:57] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 14:59:57] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 14:59:58] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 14:59:58] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 14:59:58] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 14:59:58] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:506
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据5
+[2021-01-12 15:00:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 15:04:30] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 15:04:30] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 15:04:30] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 15:04:31] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 15:04:31] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 15:04:32] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 15:04:32] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 15:04:32] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 15:04:32] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:553
+[2021-01-12 15:04:33] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据5
+[2021-01-12 15:04:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 15:50:43] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 15:50:43] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 15:50:43] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 15:50:44] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 15:50:44] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 15:50:44] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 15:50:44] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 15:50:45] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 15:50:45] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:483
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据5
+[2021-01-12 15:50:46] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 16:04:38] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 16:04:38] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 16:04:38] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 16:04:39] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 16:04:39] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 16:04:39] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 16:04:39] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 16:04:40] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 16:04:40] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:564
+[2021-01-12 16:04:40] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(332) | 从redis拉热数据5
+[2021-01-12 16:04:40] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 16:07:09] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 16:07:09] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 16:07:09] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 16:07:09] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 16:07:09] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 16:07:10] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 16:07:10] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 16:07:11] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 16:07:11] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:604
+[2021-01-12 16:07:11] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(332) | 从redis拉热数据5
+[2021-01-12 16:07:11] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:00:34] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:00:34] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:00:34] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:00:35] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4d5d943d
+[2021-01-12 17:00:35] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@7b2bbc3======================
+[2021-01-12 17:00:35] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:00:35] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@2205a05d 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:00:36] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:598
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:00:36] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:03:13] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:03:13] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:03:13] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:03:13] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@7c7b252e
+[2021-01-12 17:03:13] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@48f2bd5b======================
+[2021-01-12 17:03:14] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:03:14] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@44be0077 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:03:15] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:578
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:03:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:04:55] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:04:55] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:04:55] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable=null, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:04:56] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@7c7b252e
+[2021-01-12 17:04:56] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@48f2bd5b======================
+[2021-01-12 17:04:56] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:04:56] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@44be0077 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:04:57] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:660
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:04:57] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:07:49] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:07:49] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:07:49] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:11:24] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:11:24] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:11:24] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:11:25] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4c583ecf
+[2021-01-12 17:11:25] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1aafa419======================
+[2021-01-12 17:11:25] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:11:25] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@6aa8e115 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:11:26] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:646
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:11:26] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:12:13] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:12:13] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:12:13] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:12:13] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@66480dd7
+[2021-01-12 17:12:13] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@78c03f1f======================
+[2021-01-12 17:12:14] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:12:14] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@1b1473ab 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:12:14] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:12:14] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:700
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:12:15] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:12:26] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:12:26] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:12:26] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:12:27] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4c583ecf
+[2021-01-12 17:12:27] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1aafa419======================
+[2021-01-12 17:12:27] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:12:27] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@6aa8e115 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:12:28] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:12:28] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:483
+[2021-01-12 17:13:06] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:13:06] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:13:06] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:14:43] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:14:43] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:14:43] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:16:07] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:16:07] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:16:07] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:16:07] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4c583ecf
+[2021-01-12 17:16:07] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1aafa419======================
+[2021-01-12 17:16:08] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:16:08] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@6aa8e115 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:16:09] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:16:09] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:645
+[2021-01-12 17:16:21] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:16:21] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:16:21] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:17:16] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:17:16] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:17:16] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:21:43] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:21:43] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:21:43] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:21:44] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4c583ecf
+[2021-01-12 17:21:44] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1aafa419======================
+[2021-01-12 17:21:45] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:21:45] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@6aa8e115 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:21:45] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:21:45] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:658
+[2021-01-12 17:22:05] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:22:05] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:22:05] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:23:40] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(341) | 从mysql拉取数据转存至redis成功
+[2021-01-12 17:23:40] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(343) | 从mysql拉取数据2
+[2021-01-12 17:23:40] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:26:16] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:26:16] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:26:16] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":3000}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15000},{"table":"t_lee","timeout":3000},{"table":"t_eye","timeout":3000}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:26:16] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@368f2016
+[2021-01-12 17:26:16] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@a1153bc======================
+[2021-01-12 17:26:17] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:26:17] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@72ef8d15 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:26:17] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:26:17] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:517
+[2021-01-12 17:26:21] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:26:21] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:26:21] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:26:44] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:34:09] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:34:09] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:34:09] [INFO] com.hot.dataredis.Config.getRedisResource(114) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinktable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingletable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 17:34:10] [INFO] com.hot.dataredis.Config.<clinit>(160) | Redis资源池创建:redis.clients.jedis.Jedis@4c583ecf
+[2021-01-12 17:34:10] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1aafa419======================
+[2021-01-12 17:34:11] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 17:34:11] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@6aa8e115 		 ‖
+=========================================================================
+
+
+[2021-01-12 17:34:11] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 17:34:11] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:496
+[2021-01-12 17:34:17] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 17:34:17] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 17:34:17] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:34:32] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 17:59:22] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 17:59:22] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 17:59:22] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:02:43] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:02:43] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:02:43] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:02:44] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:02:44] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:02:45] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:502
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:02:45] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:11:04] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:11:04] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:11:04] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:11:05] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:11:05] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:11:05] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:11:05] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:11:06] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:661
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:11:06] [ERROR] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(345) | 从map_cacheLinktable(tableName=t_eye-t_lee)获取有效期异常:null
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(356) | 从mysql拉取数据转存至redis成功
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(358) | 从mysql拉取数据2
+[2021-01-12 18:11:06] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:32:16] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:32:16] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:32:16] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:32:16] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:32:16] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:32:17] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:32:17] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:32:18] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:710
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(356) | 从mysql拉取数据转存至redis成功
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(358) | 从mysql拉取数据2
+[2021-01-12 18:32:18] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:47:31] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:47:31] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:47:31] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:47:31] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:47:31] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:47:31] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:47:31] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:47:32] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:47:32] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:618
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(187) | 
+从ehcache缓存中尝试取出结果key:[SELECT * FROM t_user  where 1=1],未命中转入数据库操作
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.executeQuery(212) | 
+放入缓存中key:[SELECT * FROM t_user  where 1=1],命中对象：5
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER 
+ WHERE 
+	1=1
+---------------------------------------------------------------------------
+
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(356) | 从mysql拉取数据转存至redis成功
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(358) | 从mysql拉取数据5
+[2021-01-12 18:47:34] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:48:07] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:48:07] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:48:07] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:48:08] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:48:08] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:48:08] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:48:08] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:48:09] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:48:09] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:515
+[2021-01-12 18:48:09] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(332) | 从redis拉热数据5
+[2021-01-12 18:48:09] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:48:38] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:48:38] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:48:38] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:48:39] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 18:48:39] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 18:48:39] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:48:39] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@56dc1551 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:48:40] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:496
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+ 
+ SELECT 
+	 E.ID,
+	E.EYE,
+	L.USERNAME,
+	L.CDATE
+ FROM 
+	`T_EYE` AS E 
+ LEFT JOIN 
+	T_LEE AS L 
+ ON 
+	E.ID=L.ID
+ WHERE 
+	L.ID IN (  
+ SELECT 
+	 E.ID
+ FROM 
+	T_EYE AS E)
+---------------------------------------------------------------------------
+
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(356) | 从mysql拉取数据转存至redis成功
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(358) | 从mysql拉取数据2
+[2021-01-12 18:48:40] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 18:49:16] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 18:49:16] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 18:49:16] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 18:49:17] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@7d8995e
+[2021-01-12 18:49:17] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@1283bb96======================
+[2021-01-12 18:49:17] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 18:49:17] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@3eb91815 		 ‖
+=========================================================================
+
+
+[2021-01-12 18:49:18] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 18:49:18] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:511
+[2021-01-12 18:49:18] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.QueryByCache(332) | 从redis拉热数据2
+[2021-01-12 18:49:18] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 19:15:58] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 19:15:58] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 19:15:58] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 19:15:59] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 19:15:59] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 19:15:59] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 19:15:59] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@27912e3 		 ‖
+=========================================================================
+
+
+[2021-01-12 19:16:00] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:724
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.db.PropertiesUtils.<clinit>(31) | 加载single库配置文件[db.properties], 已开起单库模式...
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.Sql_Format(159) | 
+
+---SQL:-------------------------------------------------------------------
+
+ SELECT 
+	 *
+ FROM 
+	T_USER U 
+ WHERE 
+	USERNAME='NANO13' AND PASSWORD='P123123'
+---------------------------------------------------------------------------
+
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.getByCache(392) | 从mysql拉取数据转存至redis成功
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.getByCache(394) | 从mysql拉取数据com.test.vo.User@4bd1f8dd
+[2021-01-12 19:16:00] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 19:16:33] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 19:16:33] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 19:16:33] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 19:16:33] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 19:16:33] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 19:16:34] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 19:16:34] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@27912e3 		 ‖
+=========================================================================
+
+
+[2021-01-12 19:16:35] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 19:16:35] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:569
+[2021-01-12 19:16:35] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.getByCache(378) | 从redis拉热数据com.test.vo.User@65fe9e33
+[2021-01-12 19:16:35] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...
+[2021-01-12 19:17:29] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 19:17:29] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 19:17:29] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 19:17:30] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 19:17:30] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 19:17:30] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 19:17:30] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@27912e3 		 ‖
+=========================================================================
+
+
+[2021-01-12 19:17:47] [ERROR] com.alibaba.druid.pool.DruidDataSource.init(872) | init datasource error, url: jdbc:mysql://localhost:3306/testdb?useUnicode=true&characterEncoding=utf8&autoReconnect=true
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.Util.getInstance(Util.java:383)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1023)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:997)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:983)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:928)
+	at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2407)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2328)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:832)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:417)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:344)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1560)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:861)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1229)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1225)
+	at com.summaryday.framework.db.ConnectionFactory.getConnection(ConnectionFactory.java:204)
+	at com.summaryday.framework.db.DBHelper.load(DBHelper.java:2797)
+	at com.test.TestSingleDB.queryUserTest(TestSingleDB.java:361)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1137)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:356)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2504)
+	at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2346)
+	... 44 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:258)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:306)
+	... 46 more
+[2021-01-12 19:17:47] [ERROR] com.alibaba.druid.pool.DruidDataSource.init(905) | {dataSource-1} init error
+com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.Util.getInstance(Util.java:383)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:1023)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:997)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:983)
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:928)
+	at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2407)
+	at com.mysql.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:2328)
+	at com.mysql.jdbc.ConnectionImpl.<init>(ConnectionImpl.java:832)
+	at com.mysql.jdbc.JDBC4Connection.<init>(JDBC4Connection.java:46)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.ConnectionImpl.getInstance(ConnectionImpl.java:417)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:344)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:156)
+	at com.alibaba.druid.filter.stat.StatFilter.connection_connect(StatFilter.java:218)
+	at com.alibaba.druid.filter.FilterChainImpl.connection_connect(FilterChainImpl.java:150)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1560)
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1623)
+	at com.alibaba.druid.pool.DruidDataSource.init(DruidDataSource.java:861)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1229)
+	at com.alibaba.druid.pool.DruidDataSource.getConnection(DruidDataSource.java:1225)
+	at com.summaryday.framework.db.ConnectionFactory.getConnection(ConnectionFactory.java:204)
+	at com.summaryday.framework.db.DBHelper.load(DBHelper.java:2797)
+	at com.test.TestSingleDB.queryUserTest(TestSingleDB.java:361)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:47)
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12)
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:44)
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17)
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26)
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:271)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:70)
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:50)
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238)
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63)
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236)
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53)
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229)
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309)
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160)
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:68)
+	at com.intellij.rt.execution.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:47)
+	at com.intellij.rt.execution.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:242)
+	at com.intellij.rt.execution.junit.JUnitStarter.main(JUnitStarter.java:70)
+Caused by: com.mysql.jdbc.exceptions.jdbc4.CommunicationsException: Communications link failure
+
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:423)
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:408)
+	at com.mysql.jdbc.SQLError.createCommunicationsException(SQLError.java:1137)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:356)
+	at com.mysql.jdbc.ConnectionImpl.coreConnect(ConnectionImpl.java:2504)
+	at com.mysql.jdbc.ConnectionImpl.connectWithRetries(ConnectionImpl.java:2346)
+	... 44 more
+Caused by: java.net.ConnectException: Connection refused: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method)
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at java.net.Socket.connect(Socket.java:538)
+	at java.net.Socket.<init>(Socket.java:434)
+	at java.net.Socket.<init>(Socket.java:244)
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:258)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:306)
+	... 46 more
+[2021-01-12 19:17:47] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 19:17:47] [ERROR] com.summaryday.framework.db.ConnectionFactory.getConnection(210) | 
+ 连接池--获取数据库连接异常：Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+[2021-01-12 19:17:47] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:16797
+[2021-01-12 19:17:47] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.getByCache(378) | 从redis拉热数据com.test.vo.User@22bac7bc
+[2021-01-12 19:18:40] [WARN] com.hot.dataredis.Config.getRedisResource(47) | 在db.properties中未找到redis的参数配置,继续在redis.properties中查找配置参数...
+[2021-01-12 19:18:40] [INFO] com.hot.dataredis.Config.getRedisResource(52) | 在redis.properties中找到redis的参数配置
+[2021-01-12 19:18:40] [INFO] com.hot.dataredis.Config.getRedisResource(115) | db.properties加载完成
+{maxWaitMillis=12000, minIdle=10, sql_mode_select=true, pass=123456, timeout=12000, numTestsPerEvictionRun=5, database=2, cacheLinktable={"cacheLinkTable":[{"mutitable":"t_eye,t_lee","timeout":30}]}, maxIdle=30, testOnBorrow=true, testWhileIdle=false, port=6399, minEvictableIdleTimeMillis=300000, timeBetweenEvictionRunsMillis=3600000, cacheSingletable={"cacheSingleTable":[{"table":"t_user","timeout":15},{"table":"t_lee","timeout":30},{"table":"t_eye","timeout":30}]}, maxTotal=50, testOnReturn=true, host=127.0.0.1, maxActive=20}
+[2021-01-12 19:18:40] [INFO] com.hot.dataredis.Config.<clinit>(161) | Redis资源池创建:redis.clients.jedis.Jedis@130d63be
+[2021-01-12 19:18:40] [INFO] com.summaryday.framework.db.DBHelper.getInstance(39) | ====================hotRedisData：com.hot.dataredis.serviceimpl.RedisDataServiceImpl@74f0ea28======================
+[2021-01-12 19:18:41] [INFO] com.summaryday.framework.db.ConnectionFactory.<clinit>(179) | 
+=====================================
+‖             druid初始化            ‖
+=====================================
+
+
+[2021-01-12 19:18:41] [INFO] com.summaryday.framework.db.ConnectionFactory.getInstance(234) | 
+=========================================================================
+‖  数据源实例化                                                           ‖
+‖  com.summaryday.framework.db.ConnectionFactory@27912e3 		 ‖
+=========================================================================
+
+
+[2021-01-12 19:18:42] [INFO] com.alibaba.druid.pool.DruidDataSource.init(930) | {dataSource-1} inited
+[2021-01-12 19:18:42] [INFO] com.summaryday.framework.db.ConnectionFactory.getConnection(213) | 耗时:520
+[2021-01-12 19:18:42] [INFO] com.summaryday.framework.cache.JDBCBeanUtil.getByCache(378) | 从redis拉热数据com.test.vo.User@65fe9e33
+[2021-01-12 19:18:42] [INFO] com.summaryday.framework.cache.SqlCommonDAO.closeConnection(750) | 连接被销毁...

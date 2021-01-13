@@ -9,10 +9,15 @@ import java.util.Map;
 
 import javax.servlet.jsp.jstl.sql.Result;
 
+import com.alibaba.fastjson.JSON;
+import com.hot.dataredis.Config;
+import com.hot.dataredis.iservices.IHotRedisData;
 import org.apache.commons.beanutils.BeanUtils;
 
 import com.summaryday.framework.a.Colum;
 import com.summaryday.framework.a.Table;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 功能：将JDBC ResultSet、Result里的值转化为List
@@ -23,7 +28,7 @@ import com.summaryday.framework.a.Table;
  */
 public class JDBCBeanUtil {
 
-    //private static Log logger = LogFactory.getLog(JDBCBeanUtil.class);
+    private static final Logger logger = LoggerFactory.getLogger(JDBCBeanUtil.class);
 
     /**
      *
@@ -311,6 +316,125 @@ public class JDBCBeanUtil {
             return list;
         }
     }
+
+
+    /**
+     * 配合HotDataRedis插件jar，目的是提高实体对象，list单表列表，联表联合查询等redis的hash的key-val缓存
+     * @param o
+     * @param hotRedisData
+     * @param tableName
+     * @param sql
+     * @param helper
+     * @return
+     * @throws InvocationTargetException
+     * @throws SQLException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public static List<?> QueryByCache(Class<?> o,IHotRedisData hotRedisData,String tableName, String sql, SqlCommonDAO helper) throws InvocationTargetException, SQLException, InstantiationException, IllegalAccessException {
+        List<?> list = null;
+        if(Config.SQL_Mode){
+            if(hotRedisData.opsForHash_hexists("hotData_list@"+tableName,sql)){
+                //去查redis
+                String jsonStr=hotRedisData.getJsonStringOf_opsForHash_get("hotData_list@"+tableName,sql);
+                list= JSON.parseArray(jsonStr,o);
+                logger.info("\n从redis拉热数据"+list.size());
+            }else{
+                //去mysql
+                Result rs = helper.executeQuery();
+                if (rs != null && rs.getRowCount() > 0)
+                    list = transTOList(rs, o);
+                if(list!=null&&list.size()>0) {
+                    long timeout=-1;
+                    if(tableName.contains("-")){
+                        try {
+                            timeout = (long) Config.map_cacheLinktable.get(tableName);
+                        } catch (Exception e) {
+                            //e.printStackTrace();
+                            logger.error("从map_cacheLinktable(tableName="+tableName+")获取有效期异常:"+e.getMessage());
+                        }
+                    }else {
+                        try {
+                            timeout = (long) Config.map_cacheSingletable.get(tableName);
+                        } catch (Exception e) {
+                            //e.printStackTrace();
+                            logger.error("从map_cacheSingletable(tableName="+tableName+")获取有效期异常:"+e.getMessage());
+                        }
+                    }
+                   long t= hotRedisData.jsonStrOf_opsForHash_put("hotData_list@"+tableName, sql, JSON.toJSONString(list),timeout);
+                   logger.info("\n从mysql拉取数据转存至redis"+(t>0?"成功":"失败"));
+                }
+                logger.info("\n从mysql拉取数据"+list.size());
+            }
+        }else {
+            Result rs = helper.executeQuery();
+            if (rs != null && rs.getRowCount() > 0)
+                list = transTOList(rs, o);
+        }
+
+        return list;
+    }
+
+
+    /**
+     * 配合HotDataRedis插件jar，目的是提高实体对象，list单表列表，联表联合查询等redis的hash的key-val缓存
+     * @param o
+     * @param hotRedisData
+     * @param tableName
+     * @param sql
+     * @param helper
+     * @return
+     * @throws InvocationTargetException
+     * @throws SQLException
+     * @throws InstantiationException
+     * @throws IllegalAccessException
+     */
+    public static Object getByCache(Class<?> o,IHotRedisData hotRedisData,String tableName, String sql, SqlCommonDAO helper) throws InvocationTargetException, SQLException, InstantiationException, IllegalAccessException {
+        Object obj = null;
+        //try {
+            if(Config.SQL_Mode){
+                if(hotRedisData.opsForHash_hexists("hotData_obj@"+tableName,sql)){
+                    //去查redis
+                    String jsonStr=hotRedisData.getJsonStringOf_opsForHash_get("hotData_obj@"+tableName,sql);
+                    obj= JSON.parseObject(jsonStr,o);
+                    logger.info("\n从redis拉热数据"+obj);
+                }else{
+                    //去mysql
+                    Result rs = helper.executeQuery();
+                    if (rs != null && rs.getRowCount() > 0)
+                        obj = transTOObject(rs, o);
+                    if(obj!=null) {
+                        long timeout=30;//默认保留30秒后失效
+                            try {
+                                timeout = (long) Config.map_cacheSinglevo.get(tableName);
+                            } catch (Exception e) {
+                                logger.error("从map_cacheSinglevo(tableName="+tableName+")获取有效期异常:"+e.getMessage()+",已经使用了默认值timeout:"+timeout);
+                            }
+                        long t= hotRedisData.jsonStrOf_opsForHash_put("hotData_obj@"+tableName, sql, JSON.toJSONString(obj),timeout);
+                        logger.info("\n从mysql拉取数据转存至redis"+(t>0?"成功":"失败"));
+                    }
+                    logger.info("\n从mysql拉取数据"+obj);
+                }
+            }else {
+                Result rs = helper.executeQuery();
+                if(rs!=null&&rs.getRowCount()>0)
+                    obj = JDBCBeanUtil.transTOObject(rs, o);
+            }
+        /*} catch (SQLException e) {
+            //e.printStackTrace();
+            logger.info("\nredis热数据为正常启动，转入从mysql拉取数据");
+            Result rs = helper.executeQuery();
+            if(rs!=null&&rs.getRowCount()>0)
+                obj = JDBCBeanUtil.transTOObject(rs, o);
+        }*/
+
+        return obj;
+    }
+
+
+
+
+
 
 
     /**

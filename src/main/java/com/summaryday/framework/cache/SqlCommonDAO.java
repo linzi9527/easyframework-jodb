@@ -1,5 +1,8 @@
 package com.summaryday.framework.cache;
 
+import com.hot.dataredis.Config;
+import com.hot.dataredis.iservices.IHotRedisData;
+import com.hot.dataredis.serviceimpl.RedisDataServiceImpl;
 import com.summaryday.framework.db.EncryptUtils;
 import com.summaryday.framework.db.PropertiesUtils;
 import net.sf.ehcache.Cache;
@@ -27,7 +30,7 @@ public class SqlCommonDAO {
 	@SuppressWarnings("rawtypes")
 	private static List keys = new ArrayList();// 保存key
 
-	
+
 	
 	
 	
@@ -82,42 +85,48 @@ public class SqlCommonDAO {
 				try {
 					rs = (Result) getCacheProvider().get(command.getPakage_clazz(),key);
 				//	rs = (Result) provider.get(command.getPakage_clazz(),key);
+					if(rs!=null){
+						log.info("\n从ehcache缓存中尝试取出结果key:["+key+",Pakage_clazz:"+command.getPakage_clazz()+"],命中对象");
+					}else{
+						log.info("\n从ehcache缓存中尝试取出结果key:["+key+",Pakage_clazz:"+command.getPakage_clazz()+"],未命中转入数据库操作");
+					}
 				} catch (Exception e) {
 					// TODO Auto-generated catch block
 					//e.printStackTrace();
-					log.error("从缓存中取出结果异常："+e.getMessage());
+					log.error("从ehcache缓存中取出结果异常："+e.getMessage());
 				}
 			}
 			if (rs != null) {
 				return rs;
-			}
-			try {
-				if (command.getParams() != null && command.getParams().length > 0) {
-					pst = connection.prepareStatement(command.getSql());
-					setValues(pst, command.getParams());
-					resultSet = pst.executeQuery();
-				} else {
-					st = connection.createStatement();
-					resultSet = st.executeQuery(command.getSql());
-	
-				}
-				
-				rs = ResultSupport.toResult(resultSet);
-				
-				if (command.isCache()) {
-					// 放入缓存中
-					Map<String,Cache> map=getCacheProvider().getMap();
-					Cache cahce=map.get(command.getPakage_clazz());
-					getCacheProvider().put(cahce,key, rs);
-					register(new Key(command.getPakage_clazz(),key, command.getSql(), command.getTables(),command.getParams()));
-				}
-				Sql_Format(command.getSql());
-			} catch (Exception e) {
-				log.error("放入缓存中异常："+e.getMessage());
-			} finally {
-				if(isTransaction){
-				  this.closePreparedStatement(pst);
-				  this.close(connection, st, resultSet);
+			}else {
+				try {
+					if (command.getParams() != null && command.getParams().length > 0) {
+						pst = connection.prepareStatement(command.getSql());
+						setValues(pst, command.getParams());
+						resultSet = pst.executeQuery();
+					} else {
+						st = connection.createStatement();
+						resultSet = st.executeQuery(command.getSql());
+
+					}
+
+					rs = ResultSupport.toResult(resultSet);
+
+					if (command.isCache()) {
+						// 放入缓存中
+						Map<String, Cache> map = getCacheProvider().getMap();
+						Cache cahce = map.get(command.getPakage_clazz());
+						getCacheProvider().put(cahce, key, rs);
+						register(new Key(command.getPakage_clazz(), key, command.getSql(), command.getTables(), command.getParams()));
+					}
+					Sql_Format(command.getSql());
+				} catch (Exception e) {
+					log.error("放入缓存中异常：" + e.getMessage());
+				} finally {
+					if (isTransaction) {
+						this.closePreparedStatement(pst);
+						this.close(connection, st, resultSet);
+					}
 				}
 			}
 		}
@@ -156,7 +165,8 @@ public class SqlCommonDAO {
 	}
 	/**
 	 * 执行查询，处理完只要要关闭ResultSet和Connection对象
-	 * 
+	 *  目前可以支持两种高性能查询缓存：1使用redis；2使用EHcache
+	 *  优先级1大于2
 	 * @return ResultSet
 	 */
 	public Result executeQuery() {
@@ -166,41 +176,49 @@ public class SqlCommonDAO {
 		Result rs = null;
 		String key = null;
 		if(EncryptUtils.LOCK){
+
 			if (command.isCache()) {
 				// 从缓存中取出结果
 				key = getkey(command.getSql(), command.getParams());
 				rs = (Result) getCacheProvider().get(key);
+				if(rs!=null){
+					log.info("\n从ehcache缓存中尝试取出结果key:["+key+"],命中对象");
+				}else{
+					log.info("\n从ehcache缓存中尝试取出结果key:["+key+"],未命中转入数据库操作");
+				}
 			}
 			if (rs != null) {
 				return rs;
-			}
-			try {
-				if (command.getParams() != null && command.getParams().length > 0) {
-					pst = connection.prepareStatement(command.getSql());
-					setValues(pst, command.getParams());
-					resultSet = pst.executeQuery();
-				} else {
-					st = connection.createStatement();
-					resultSet = st.executeQuery(command.getSql());
-	
-				}
-				
-				rs = ResultSupport.toResult(resultSet);
-				
-				if (command.isCache()) {
-					// 放入缓存中
-					getCacheProvider().put(key, rs);
-					register(new Key(key, command.getSql(), command.getTables(),
-							command.getParams()));
-				}
-				Sql_Format(command.getSql());
-			} catch (Exception e) {
-				log.error("放入缓存中异常："+e.getMessage());
-			}
-			finally {
-				if(isTransaction){
-				this.closePreparedStatement(pst);
-				this.close(connection, st, resultSet);
+			}else {
+				try {
+
+					if (command.getParams() != null && command.getParams().length > 0) {
+						pst = connection.prepareStatement(command.getSql());
+						setValues(pst, command.getParams());
+						resultSet = pst.executeQuery();
+					} else {
+						st = connection.createStatement();
+						resultSet = st.executeQuery(command.getSql());
+
+					}
+
+					rs = ResultSupport.toResult(resultSet);
+
+					if (command.isCache()) {
+						// 放入缓存中
+						getCacheProvider().put(key, rs);
+						register(new Key(key, command.getSql(), command.getTables(),
+								command.getParams()));
+						log.info("\n放入缓存中key:["+key+"],命中对象："+rs.getRowCount());
+					}
+					Sql_Format(command.getSql());
+				} catch (Exception e) {
+					log.error("放入缓存中异常：" + e.getMessage());
+				} finally {
+					if (isTransaction) {
+						this.closePreparedStatement(pst);
+						this.close(connection, st, resultSet);
+					}
 				}
 			}
 		}

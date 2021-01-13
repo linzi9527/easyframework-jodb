@@ -1,37 +1,27 @@
 package com.summaryday.framework.db;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
-import javax.servlet.jsp.jstl.sql.Result;
-import javax.servlet.jsp.jstl.sql.ResultSupport;
-
-import org.apache.commons.lang.StringUtils;
-
+import com.hot.dataredis.Config;
+import com.hot.dataredis.iservices.IHotRedisData;
+import com.hot.dataredis.serviceimpl.RedisDataServiceImpl;
 import com.summaryday.framework.a.Colum;
 import com.summaryday.framework.a.Key;
 import com.summaryday.framework.a.Table;
 import com.summaryday.framework.cache.Command;
 import com.summaryday.framework.cache.JDBCBeanUtil;
 import com.summaryday.framework.cache.SqlCommonDAO;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import javax.servlet.jsp.jstl.sql.Result;
+import javax.servlet.jsp.jstl.sql.ResultSupport;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.sql.*;
+import java.util.Date;
+import java.util.*;
 
 @SuppressWarnings("rawtypes")
 public class DBHelper {
@@ -41,7 +31,13 @@ public class DBHelper {
 	//private Connection connection = null;
 	private String[] link_name = null;
 
+	private static IHotRedisData hotRedisData;//redis缓存操作对象
+
 	public static DBHelper getInstance() {
+		if(Config.SQL_Mode&&hotRedisData==null) {
+			hotRedisData = new RedisDataServiceImpl();
+			log.info("====================hotRedisData："+hotRedisData+"======================");
+		}
 		return postDB;
 	}
 
@@ -257,9 +253,10 @@ public class DBHelper {
 			c.setCache(isCache);
 			c.setTables(new String[] { table });
 			c.setSql(sb.toString());
+			list = JDBCBeanUtil.QueryByCache(o,hotRedisData,table,c.getSql(),helper);
 			// System.out.println(sb.toString());
-			Result rs = helper.executeQuery();
-			if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);
+			/*Result rs = helper.executeQuery();
+			if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);*/
 			//connection.close();
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -315,8 +312,9 @@ public class DBHelper {
 			c.setTables(new String[] { table });
 			c.setSql(sb.toString());
 			helper.setCommand(c);
-			Result rs = helper.executeQueryByCache();
-			if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);
+			list = JDBCBeanUtil.QueryByCache(o,hotRedisData,table,c.getSql(),helper);
+			/*Result rs = helper.executeQueryByCache();
+			if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);*/
 			//connection.close();
 		  }else{
 				log.error("querys()数据VO没加注解");
@@ -407,10 +405,11 @@ public class DBHelper {
 			}else{
 				c.setSql(sql);
 			}
-			Result rs = helper.executeQuery();
-			if(rs!=null&&rs.getRowCount()>0)
-				list = JDBCBeanUtil.transTOList(rs, o);
 
+			list = JDBCBeanUtil.QueryByCache(o,hotRedisData,tableName,c.getSql(),helper);
+			/*	Result rs = helper.executeQuery();
+				if (rs != null && rs.getRowCount() > 0)
+					list = JDBCBeanUtil.transTOList(rs, o);*/
 		}catch (SQLException e) {
 			// TODO Auto-generated catch block
 			//e.printStackTrace();
@@ -457,9 +456,10 @@ public class DBHelper {
 				c.setTables(link_name);
 				c.setSql(sql);
 				if(sql.trim().toLowerCase().startsWith("select")){
-					Result rs = helper.executeQuery();
+					/*Result rs = helper.executeQuery();
 					if(rs!=null&&rs.getRowCount()>0) 
-					list = JDBCBeanUtil.transTOList(rs, o);
+					list = JDBCBeanUtil.transTOList(rs, o);*/
+					list = JDBCBeanUtil.QueryByCache(o,hotRedisData,StringUtil.join("-",link_name),c.getSql(),helper);
 				}else{
 					log.error("query()方法SQLException：没有写select * from ...格式语法缺少关键字异常：" +sql+"\n"+
 							  "---------------------query方法调用-系统提示-----------------------"
@@ -529,8 +529,9 @@ public class DBHelper {
 				c.setTables(link_name);
 				c.setSql(sql);
 				if(sql.trim().toLowerCase().startsWith("select")&&null!=link_name&&link_name.length>0){
-				 Result rs = helper.executeQuery();
-				 if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);
+				 /*Result rs = helper.executeQuery();
+				 if(rs!=null&&rs.getRowCount()>0) list = JDBCBeanUtil.transTOList(rs, o);*/
+					list = JDBCBeanUtil.QueryByCache(o,hotRedisData,StringUtil.join("-",link_name),c.getSql(),helper);
 				}else{
 					log.error("queryTables()方法多表联合操作调用异常：" +sql+"\n"+
 							  "---------------------queryTables方法调用-系统提示-----------------------"
@@ -2690,8 +2691,9 @@ public class DBHelper {
 
 				c.setTables(new String[] { table });
 				c.setSql(sb.toString());
-				Result rs = helper.executeQuery();
-				if(rs!=null&&rs.getRowCount()>0) obj = JDBCBeanUtil.transTOObject(rs, o);
+				/*Result rs = helper.executeQuery();
+				if(rs!=null&&rs.getRowCount()>0) obj = JDBCBeanUtil.transTOObject(rs, o);*/
+				obj =JDBCBeanUtil.getByCache(o,hotRedisData,table,c.getSql(),helper);
 			} catch (Exception e) {
 				// TODO: handle exception
                 log.error("根据id获取实体对象异常："+e.getMessage());
@@ -2754,8 +2756,9 @@ public class DBHelper {
 				
 				c.setTables(new String[] { table });
 				c.setSql(sb.toString());
-				Result rs = helper.executeQuery();
-				if(rs!=null&&rs.getRowCount()>0) obj = JDBCBeanUtil.transTOObject(rs, o);
+				/*Result rs = helper.executeQuery();
+				if(rs!=null&&rs.getRowCount()>0) obj = JDBCBeanUtil.transTOObject(rs, o);*/
+				obj =JDBCBeanUtil.getByCache(o,hotRedisData,table,c.getSql(),helper);
 			} catch (Exception e) {
                 log.error("根据id获取实体对象异常："+e.getMessage());
 			} finally {
@@ -2822,8 +2825,9 @@ public class DBHelper {
 					c.setCache(isCache);
 					c.setTables(new String[] { table });
 					c.setSql(sb.toString());
-					Result rs = helper.executeQuery();
-					if(rs!=null&&rs.getRowCount()>0)obj = JDBCBeanUtil.transTOObject(rs, o);
+					/*Result rs = helper.executeQuery();
+					if(rs!=null&&rs.getRowCount()>0)obj = JDBCBeanUtil.transTOObject(rs, o);*/
+					obj =JDBCBeanUtil.getByCache(o,hotRedisData,table,c.getSql(),helper);
 				} catch (Exception e) {
 					// TODO: handle exception
 					log.error("load-sql:" + sb.toString() + "\n",e);
@@ -4310,7 +4314,7 @@ public class DBHelper {
 		
 		return flag;
 	}// end
-	
-	
-	
+
+
+
 }
