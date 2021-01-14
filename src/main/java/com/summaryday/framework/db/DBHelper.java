@@ -36,7 +36,7 @@ public class DBHelper {
 	public static DBHelper getInstance() {
 		if(Config.SQL_Mode&&hotRedisData==null) {
 			hotRedisData = new RedisDataServiceImpl();
-			log.info("====================hotRedisData："+hotRedisData+"======================");
+			log.info("\n====================hotRedisData："+hotRedisData+"======================");
 		}
 		return postDB;
 	}

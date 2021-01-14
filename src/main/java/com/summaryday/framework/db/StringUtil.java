@@ -359,11 +359,17 @@ public class StringUtil {
 	//字符串数组转为字符串
 	public static String join(CharSequence flag,String[] strings){
 		StringBuffer sb=new StringBuffer();
-		for(int i=0;i<strings.length;i++){
-			if(i==strings.length-1){
-				sb.append(strings[i]);
-			}else{
-				sb.append(strings[i]).append(flag);
+		if(strings.length>0) {
+			if(strings.length==1){
+				sb.append(strings[0]);
+			}else {
+				for (int i = 0; i < strings.length; i++) {
+					if (i == strings.length - 1) {
+						sb.append(strings[i]);
+					} else {
+						sb.append(strings[i]).append(flag);
+					}
+				}
 			}
 		}
 		return sb.toString();
